@@ -13,6 +13,8 @@ namespace DinoDuel
 		public HingeJoint2D PawRMover { get; set; }
 		public HingeJoint2D PawLMover { get; set; }
 
+		public float speed = 100;
+
 		// Use this for initialization
 		void Start()
 		{
@@ -22,18 +24,26 @@ namespace DinoDuel
 		// Update is called once per frame
 		void Update()
 		{
-			if(Input.GetKey(KeyCode.Q))
-				Debug.Log("Move the head.");
-			if(Input.GetKey(KeyCode.E))
-				Debug.Log("Move the jaw.");
-			if(Input.GetKey(KeyCode.W))
-				Debug.Log("Move the left arm.");
-			if(Input.GetKey(KeyCode.S))
-				Debug.Log("Move the right arm.");
-			if(Input.GetKey(KeyCode.A))
-				Debug.Log("Move the left leg.");
-			if(Input.GetKey(KeyCode.D))
-				Debug.Log("Move the right leg.");
+			movePart(Input.GetAxis("Jaw"), JawMover);
+			movePart(Input.GetAxis("Head"), HeadMover);
+			movePart(Input.GetAxis("Paw_L"), PawLMover);
+			movePart(Input.GetAxis("Paw_R"), PawRMover);
+			movePart(Input.GetAxis("Leg_L"), LegLMover);
+			movePart(Input.GetAxis("Leg_R"), LegRMover);
+		}
+
+		private void movePart(float axisInput, HingeJoint2D joint)
+		{
+
+			JointMotor2D jm = new JointMotor2D();
+			jm.maxMotorTorque = 100;
+			if(axisInput > 0)
+				jm.motorSpeed = axisInput * speed;
+			else
+				jm.motorSpeed = -100;
+			
+			joint.motor = jm;
+
 		}
 	}
 }
