@@ -1,0 +1,17 @@
+#
+# Sprite sheet data for Unity.
+#
+# To import these sprites into your Unity project, download "TexturePackerImporter":
+# http://www.codeandweb.com/texturepacker/unity
+#
+# Sprite sheet: Dino1.png (512 x 512)
+# $TexturePacker:SmartUpdate:70e8d9fa7cf1c3975fcbb70d6aed3891:fc3b07d42181b835be2d1dcee59d8b72:2ef4b641cd199de1c7c78c49cc650050$
+#
+
+Dino1_Body;2;258;328;252;0.5;0.5
+Dino1_Head;2;107;247;149;0.5;0.5
+Dino1_Jar;332;453;151;57;0.5;0.5
+Dino1_Leg_L;397;304;55;64;0.5;0.5
+Dino1_Leg_R;411;370;63;81;0.5;0.5
+Dino1_Paw_L;332;397;77;54;0.5;0.5
+Dino1_Paw_R;332;341;63;54;0.5;0.5
