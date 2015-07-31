@@ -1,17 +1,26 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 using Vexe.Runtime.Types;
 
 namespace DinoDuel
 {
 	public class Dino : BetterBehaviour
 	{
-		
 		public enum Player
 		{
-			Player1,
-			Player2
+			None = 0,
+			Player1 = 2,
+			Player2 = 4
+		}
+
+		public enum DeathType
+		{
+			Damage,
+			Time,
+			Meteor,
+			Lava
 		}
 
 		#region Health
@@ -36,7 +45,6 @@ namespace DinoDuel
 				if(isDead)	die();
 			}
 		}
-
 		#endregion
 
 		public Player player;
@@ -111,9 +119,51 @@ namespace DinoDuel
 			//VFX
 		}
 
-		public void die()
+		public void die(DeathType deathType = DeathType.Damage)
 		{
-			gameObject.SetActive(false);
+			switch(deathType)
+			{
+				case DeathType.Damage:
+					explode();
+					break;
+				case DeathType.Time:
+					goto case DeathType.Damage;
+				case DeathType.Meteor:
+					goto case DeathType.Damage;
+				case DeathType.Lava:
+					goto case DeathType.Damage;
+				default: goto case DeathType.Damage;
+			}
+			this.enabled = false;
+			Camera.main.GetComponent<Cam_Normalizer>().frozen = true;
+		}
+
+		[Show]
+		private void explode()
+		{
+			List<Rigidbody2D> rigidBodies = new List<Rigidbody2D>();
+			foreach(Rigidbody2D rb in transform.GetComponentsInChildren<Rigidbody2D>())
+			{
+				rigidBodies.Add(rb);
+				HingeJoint2D hingeJoint = rb.GetComponent<HingeJoint2D>();
+				if(hingeJoint)		GameObject.Destroy(hingeJoint);
+				
+				BoxCollider2D boxCollider2D = rb.GetComponent<BoxCollider2D>();
+				if(boxCollider2D)	GameObject.Destroy(boxCollider2D);
+
+				rb.fixedAngle = false;
+
+				rb.gameObject.AddComponent<PartDestroyer>();
+			}
+			transform.DetachChildren();
+
+			foreach(Rigidbody2D rb in rigidBodies)
+			{
+				float randX = Random.Range(200, 1000);
+				float randY = Random.Range(200, 1000);
+				rb.AddForce(new Vector2(randX, randY));
+			}
+			this.enabled = false;
 		}
 	}
 }

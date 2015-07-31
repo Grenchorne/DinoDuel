@@ -7,12 +7,10 @@ namespace DinoDuel
 	{
 		public float damageOnHit;
 		private float damageMod = 0.0005f;
-		private Joint2D joint2D;
 		private Rigidbody2D rigidBody2D;
 
 		void Start()
 		{
-			joint2D = GetComponent<Joint2D>();
 			rigidBody2D = GetComponent<Rigidbody2D>();
 		}
 
