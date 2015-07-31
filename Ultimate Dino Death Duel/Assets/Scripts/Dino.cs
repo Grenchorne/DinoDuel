@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using Vexe.Runtime.Types;
 
 namespace DinoDuel
 {
-	public class DinoMover : BetterBehaviour
+	public class Dino : BetterBehaviour
 	{
 		
 		public enum Player
@@ -12,6 +13,31 @@ namespace DinoDuel
 			Player1,
 			Player2
 		}
+
+		#region Health
+		private static readonly float H_MAX = 100;
+		private static readonly float H_MIN = 0;
+		private static readonly float H_STARTING = H_MAX;
+		public Slider healthSlider;
+
+		private float _health;
+		[Show]
+		public float Health
+		{
+			get { return _health; }
+			set
+			{
+				bool isDead = value < H_MIN;
+				if(value > H_MAX)		value = H_MAX;
+				else if(value < H_MIN)	value = H_MIN;
+
+				healthSlider.value = value;
+				_health = value;
+				if(isDead)	die();
+			}
+		}
+
+		#endregion
 
 		public Player player;
 		public float speed = 100;
@@ -30,13 +56,12 @@ namespace DinoDuel
 		public HingeJoint2D LegLMover { get; set; }
 		public HingeJoint2D LegRMover { get; set; }
 		public HingeJoint2D PawRMover { get; set; }
-		public HingeJoint2D PawLMover { get; set; }
-
-		
+		public HingeJoint2D PawLMover { get; set; }		
 
 		// Use this for initialization
 		void Start()
 		{
+			Health = H_STARTING;
 			string inputPrefix = "";
 			switch(player)
 			{
@@ -71,21 +96,24 @@ namespace DinoDuel
 		}
 
 		private void movePart(float axisInput, HingeJoint2D joint)
-		{
-			bool pressed = axisInput > 0;
-			
+		{			
 			JointMotor2D jm = new JointMotor2D();
 			jm.maxMotorTorque = 100;
 
 			if(axisInput > 0)	jm.motorSpeed = axisInput * speed * directionMod;
 			else				jm.motorSpeed = -100 * directionMod;
 			joint.motor = jm;
+		}
 
-			#if UNITY_EDITOR
-			if(pressed)
-				Debug.Log("moving: " + joint.name + " " + jm.motorSpeed);
-			#endif
+		private void receiveDamage(float value)
+		{
+			//SFX
+			//VFX
+		}
 
+		public void die()
+		{
+			gameObject.SetActive(false);
 		}
 	}
 }
