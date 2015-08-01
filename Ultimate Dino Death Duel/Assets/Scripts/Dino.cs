@@ -47,6 +47,8 @@ namespace DinoDuel
 		}
 		#endregion
 
+		public Text loseText;
+
 		public Player player;
 		public float speed = 100;
 
@@ -136,6 +138,7 @@ namespace DinoDuel
 			}
 			this.enabled = false;
 			Camera.main.GetComponent<Cam_Normalizer>().frozen = true;
+			loseText.gameObject.SetActive(true);
 		}
 
 		[Show]

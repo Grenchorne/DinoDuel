@@ -11,7 +11,6 @@ namespace DinoDuel
 		{
 			Dino dino = collider.GetComponentInParent<Dino>();
 			if(dino)	dino.die(Dino.DeathType.Lava);
-			Debug.Log(dino);
 		}
 	}
 }

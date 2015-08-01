@@ -1,0 +1,12 @@
+#
+# Sprite sheet data for Unity.
+#
+# To import these sprites into your Unity project, download "TexturePackerImporter":
+# http://www.codeandweb.com/texturepacker/unity
+#
+# Sprite sheet: Env_1.png (512 x 1024)
+# $TexturePacker:SmartUpdate:e9b6913fb59c6efbe8ca9fac9544e3db:3cad2988d04dcbbf40fc27047afc99e6:6e8b8af10f2c3c9bbb5af2931250e146$
+#
+
+Lava;0;0;512;512;0.5;0.5
+Rock;0;512;512;512;0.5;0.5

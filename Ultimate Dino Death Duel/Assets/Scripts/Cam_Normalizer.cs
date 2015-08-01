@@ -9,11 +9,10 @@ namespace DinoDuel
 		private Transform dino2;
 		public bool frozen = false;
 
-		private static readonly float X_MIN = -6f;
+		private static readonly float X_MIN = -8f;
 		private static readonly float X_MAX = -X_MIN;
 		private static readonly float Z_MIN = -6f;
 		private static readonly float Z_MAX = -11f;
-
 		private static readonly float Y_Pos = 4.5f;
 
 		void Start ()
