@@ -7,24 +7,52 @@ namespace DinoDuel
 	[RequireComponent(typeof(Rigidbody2D))]
 	public class Meteor : MonoBehaviour
 	{
+		public Dino target;
+		public ParticleSystem explosion;
+
 		private Rigidbody2D rigidBody2D;
 		private BoxCollider2D boxCollider2D;
+		private GameObject targetHead;
+		bool collidedWithDino = false;
+
 
 		void Start ()
 		{
 			rigidBody2D = GetComponent<Rigidbody2D>();
 			boxCollider2D = GetComponent<BoxCollider2D>();
+			boxCollider2D.isTrigger = true;
+			if(explosion)
+				explosion.enableEmission = false;
 
-			rigidBody2D.mass = 2000;
+			rigidBody2D.velocity = new Vector2(0, -100);
+		}
+
+		void FixedUpdate()
+		{
+			if(target)
+				transform.position = new Vector2(target.transform.position.x, transform.position.y);
 		}
 
 		void OnTriggerEnter2D(Collider2D collider)
 		{
 			Dino dino = collider.GetComponent<Dino>();
-			if(dino)
+			if(dino && dino == target)
 			{
-				dino.die(Dino.DeathType.Meteor);
+				collidedWithDino = true;
 			}
+
+			else if(collider.name.Contains("Platform") && collidedWithDino)
+			{
+				target.die(Dino.DeathType.Meteor);
+				explode();
+			}
+		}
+
+		private void explode()
+		{
+			ParticleSystem expl = GameObject.Instantiate<ParticleSystem>(explosion);
+			expl.transform.position = transform.position;
+			expl.Emit(10);
 		}
 	}
 }

@@ -106,7 +106,7 @@ namespace DinoDuel
 		}
 
 		private void movePart(float axisInput, HingeJoint2D joint)
-		{			
+		{
 			JointMotor2D jm = new JointMotor2D();
 			jm.maxMotorTorque = 100;
 
@@ -137,8 +137,12 @@ namespace DinoDuel
 				default: goto case DeathType.Damage;
 			}
 			this.enabled = false;
-			Camera.main.GetComponent<Cam_Normalizer>().frozen = true;
-			loseText.gameObject.SetActive(true);
+			Camera main = Camera.main;
+			main.GetComponent<Cam_Normalizer>().frozen = true;
+			main.GetComponent<Timer>().roundOver = true;
+
+			if(!main.GetComponent<Timer>().roundOver)
+				loseText.gameObject.SetActive(true);
 		}
 
 		[Show]
@@ -147,16 +151,15 @@ namespace DinoDuel
 			List<Rigidbody2D> rigidBodies = new List<Rigidbody2D>();
 			foreach(Rigidbody2D rb in transform.GetComponentsInChildren<Rigidbody2D>())
 			{
+				rb.fixedAngle = false;
+				rb.gameObject.AddComponent<PartDestroyer>();
 				rigidBodies.Add(rb);
+				
 				HingeJoint2D hingeJoint = rb.GetComponent<HingeJoint2D>();
 				if(hingeJoint)		GameObject.Destroy(hingeJoint);
 				
 				BoxCollider2D boxCollider2D = rb.GetComponent<BoxCollider2D>();
 				if(boxCollider2D)	GameObject.Destroy(boxCollider2D);
-
-				rb.fixedAngle = false;
-
-				rb.gameObject.AddComponent<PartDestroyer>();
 			}
 			transform.DetachChildren();
 

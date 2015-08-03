@@ -17,8 +17,8 @@ namespace DinoDuel
 
 		void Start ()
 		{
-			dino1 = GameObject.Find("Dino1").transform;
-			dino2 = GameObject.Find("Dino2").transform;
+			dino1 = GameObject.Find("Blue_Body").transform;
+			dino2 = GameObject.Find("Red_Body").transform;
 		}
 		void Update ()
 		{

@@ -1,0 +1,209 @@
+fileFormatVersion: 2
+guid: d7942ce8eb6210649a5a3afeac448e4b
+timeCreated: 1438631963
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Blue_Arm_L
+    21300002: Blue_Arm_R
+    21300004: Blue_Body
+    21300006: Blue_Head
+    21300008: Blue_Jaw
+    21300010: Blue_Leg_L
+    21300012: Blue_Leg_R
+    21300014: Red_Arm_L
+    21300016: Red_Arm_R
+    21300018: Red_Body
+    21300020: Red_Head
+    21300022: Red_Jaw
+    21300024: Red_Leg_L
+    21300026: Red_Leg_R
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 4096
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Blue_Arm_L
+      rect:
+        serializedVersion: 2
+        x: 726
+        y: 296
+        width: 198
+        height: 92
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Blue_Arm_R
+      rect:
+        serializedVersion: 2
+        x: 526
+        y: 318
+        width: 198
+        height: 92
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Blue_Body
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 58
+        width: 522
+        height: 481
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Blue_Head
+      rect:
+        serializedVersion: 2
+        x: 526
+        y: 578
+        width: 390
+        height: 221
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Blue_Jaw
+      rect:
+        serializedVersion: 2
+        x: 526
+        y: 412
+        width: 271
+        height: 81
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Blue_Leg_L
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 123
+        width: 116
+        height: 171
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Blue_Leg_R
+      rect:
+        serializedVersion: 2
+        x: 762
+        y: 123
+        width: 116
+        height: 171
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Red_Arm_L
+      rect:
+        serializedVersion: 2
+        x: 799
+        y: 390
+        width: 198
+        height: 92
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Red_Arm_R
+      rect:
+        serializedVersion: 2
+        x: 799
+        y: 484
+        width: 198
+        height: 92
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Red_Body
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 541
+        width: 522
+        height: 481
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Red_Head
+      rect:
+        serializedVersion: 2
+        x: 526
+        y: 801
+        width: 390
+        height: 221
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Red_Jaw
+      rect:
+        serializedVersion: 2
+        x: 526
+        y: 495
+        width: 271
+        height: 81
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Red_Leg_L
+      rect:
+        serializedVersion: 2
+        x: 644
+        y: 123
+        width: 116
+        height: 171
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Red_Leg_R
+      rect:
+        serializedVersion: 2
+        x: 526
+        y: 145
+        width: 116
+        height: 171
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
