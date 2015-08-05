@@ -15,7 +15,7 @@ namespace DinoDuel
 
 		public Meteor endRoundMeteor;
 		
-		void Start ()
+		void Awake ()
 		{
 			roundOver = false;
 		}

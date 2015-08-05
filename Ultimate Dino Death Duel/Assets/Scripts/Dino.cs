@@ -47,8 +47,37 @@ namespace DinoDuel
 		}
 		#endregion
 
-		public Text loseText;
+		#region Damage Packing
+		public float damageToApply { get; set; }
+		private bool applyingDamage;
+		public Dino enemy;
+		private Damager[] damagers;
 
+		private void applyDamage()
+		{
+			if(damageToApply >= 1 && damageToApply < 4)
+			{
+				Debug.Log("small hit");
+			}
+
+			else if(damageToApply >= 4 && damageToApply < 8)
+			{
+				Debug.Log("med hit");
+			}
+
+			else
+			{
+				Debug.Log("big hit");
+			}
+
+			enemy.Health -= damageToApply;
+			damageToApply = 0;
+			applyingDamage = false;
+		}
+		#endregion
+
+
+		public Text loseText;
 		public Player player;
 		public float speed = 100;
 
@@ -86,6 +115,8 @@ namespace DinoDuel
 				default: goto case Player.Player1;
 			}
 
+			damagers = GetComponentsInChildren<Damager>();
+
 			jawInput = inputPrefix + "Jaw";
 			headInput = inputPrefix + "Head";
 			pawLInput = inputPrefix + "Paw_L";
@@ -103,6 +134,21 @@ namespace DinoDuel
 			movePart(Input.GetAxis(pawRInput), PawRMover);
 			movePart(Input.GetAxis(legLInput), LegLMover);
 			movePart(Input.GetAxis(legRInput), LegRMover);
+
+			applyingDamage = false;
+			foreach(Damager d in damagers)
+			{
+				if(d.applyingDamage)
+				{
+					applyingDamage = true;
+					break;
+				}
+			}
+
+			if(!applyingDamage && damageToApply > 1)
+			{
+				applyDamage();
+			}	
 		}
 
 		private void movePart(float axisInput, HingeJoint2D joint)
@@ -113,12 +159,6 @@ namespace DinoDuel
 			if(axisInput > 0)	jm.motorSpeed = axisInput * speed * directionMod;
 			else				jm.motorSpeed = -100 * directionMod;
 			joint.motor = jm;
-		}
-
-		private void receiveDamage(float value)
-		{
-			//SFX
-			//VFX
 		}
 
 		public void die(DeathType deathType = DeathType.Damage)

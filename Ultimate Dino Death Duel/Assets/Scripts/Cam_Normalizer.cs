@@ -5,8 +5,8 @@ namespace DinoDuel
 {
 	public class Cam_Normalizer : MonoBehaviour
 	{
-		private Transform dino1;
-		private Transform dino2;
+		Transform dino1;
+		Transform dino2;
 		public bool frozen = false;
 
 		private static readonly float X_MIN = -8f;
@@ -15,10 +15,10 @@ namespace DinoDuel
 		private static readonly float Z_MAX = -11f;
 		private static readonly float Y_Pos = 4.5f;
 
-		void Start ()
+		void Awake ()
 		{
-			dino1 = GameObject.Find("Blue_Body").transform;
-			dino2 = GameObject.Find("Red_Body").transform;
+			dino1 =  this.GetComponent<Timer>().player1.transform.FindChild("Blue_Body").transform;
+			dino2 =  this.GetComponent<Timer>().player2.transform.FindChild("Red_Body").transform;
 		}
 		void Update ()
 		{

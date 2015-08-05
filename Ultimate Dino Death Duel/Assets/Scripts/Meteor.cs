@@ -12,7 +12,6 @@ namespace DinoDuel
 
 		private Rigidbody2D rigidBody2D;
 		private BoxCollider2D boxCollider2D;
-		private GameObject targetHead;
 		bool collidedWithDino = false;
 
 
@@ -35,14 +34,13 @@ namespace DinoDuel
 
 		void OnTriggerEnter2D(Collider2D collider)
 		{
-			Dino dino = collider.GetComponent<Dino>();
+			Dino dino = collider.GetComponentInParent<Dino>();
 			if(dino && dino == target)
-			{
 				collidedWithDino = true;
-			}
 
 			else if(collider.name.Contains("Platform") && collidedWithDino)
 			{
+				Debug.Log("platform");
 				target.die(Dino.DeathType.Meteor);
 				explode();
 			}

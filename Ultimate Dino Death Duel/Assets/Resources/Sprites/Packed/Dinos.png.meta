@@ -66,20 +66,20 @@ TextureImporter:
     - name: Blue_Arm_L
       rect:
         serializedVersion: 2
-        x: 726
-        y: 296
-        width: 198
-        height: 92
+        x: 298
+        y: 701
+        width: 112
+        height: 52
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Blue_Arm_R
       rect:
         serializedVersion: 2
-        x: 526
-        y: 318
-        width: 198
-        height: 92
+        x: 298
+        y: 755
+        width: 112
+        height: 52
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -87,69 +87,69 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2
-        y: 58
-        width: 522
-        height: 481
+        y: 751
+        width: 294
+        height: 271
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Blue_Head
       rect:
         serializedVersion: 2
-        x: 526
-        y: 578
-        width: 390
-        height: 221
+        x: 286
+        y: 536
+        width: 220
+        height: 125
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Blue_Jaw
       rect:
         serializedVersion: 2
-        x: 526
-        y: 412
-        width: 271
-        height: 81
+        x: 298
+        y: 855
+        width: 152
+        height: 46
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Blue_Leg_L
       rect:
         serializedVersion: 2
-        x: 880
-        y: 123
-        width: 116
-        height: 171
+        x: 2
+        y: 391
+        width: 65
+        height: 96
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Blue_Leg_R
       rect:
         serializedVersion: 2
-        x: 762
-        y: 123
-        width: 116
-        height: 171
+        x: 412
+        y: 663
+        width: 65
+        height: 96
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Red_Arm_L
       rect:
         serializedVersion: 2
-        x: 799
-        y: 390
-        width: 198
-        height: 92
+        x: 395
+        y: 484
+        width: 107
+        height: 50
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Red_Arm_R
       rect:
         serializedVersion: 2
-        x: 799
+        x: 286
         y: 484
-        width: 198
-        height: 92
+        width: 107
+        height: 50
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -157,49 +157,49 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2
-        y: 541
-        width: 522
-        height: 481
+        y: 489
+        width: 282
+        height: 260
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Red_Head
       rect:
         serializedVersion: 2
-        x: 526
-        y: 801
-        width: 390
-        height: 221
+        x: 298
+        y: 903
+        width: 211
+        height: 119
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Red_Jaw
       rect:
         serializedVersion: 2
-        x: 526
-        y: 495
-        width: 271
-        height: 81
+        x: 298
+        y: 809
+        width: 146
+        height: 44
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Red_Leg_L
       rect:
         serializedVersion: 2
-        x: 644
-        y: 123
-        width: 116
-        height: 171
+        x: 69
+        y: 395
+        width: 62
+        height: 92
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Red_Leg_R
       rect:
         serializedVersion: 2
-        x: 526
-        y: 145
-        width: 116
-        height: 171
+        x: 446
+        y: 761
+        width: 62
+        height: 92
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
