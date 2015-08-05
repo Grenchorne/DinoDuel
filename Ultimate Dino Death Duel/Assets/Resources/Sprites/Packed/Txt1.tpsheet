@@ -1,0 +1,17 @@
+#
+# Sprite sheet data for Unity.
+#
+# To import these sprites into your Unity project, download "TexturePackerImporter":
+# http://www.codeandweb.com/texturepacker/unity
+#
+# Sprite sheet: Txt1.png (2048 x 1024)
+# $TexturePacker:SmartUpdate:c642d2c8fbec0ade399e96fd17860188:14dae2f8a605d990762a6ef7780bc501:40aa863bacfcef2315a2a5980a6a1b49$
+#
+
+Back;1805;930;112;46;0.5;0.5
+By Mike Plouffe;0;393;374;49;0.5;0.5
+Controls;1805;976;225;48;0.5;0.5
+DeathDuel;0;625;1805;399;0.5;0.5
+Play;1805;884;92;46;0.5;0.5
+Quit;1917;917;108;59;0.5;0.5
+UltimateDino;0;442;1235;183;0.5;0.5
