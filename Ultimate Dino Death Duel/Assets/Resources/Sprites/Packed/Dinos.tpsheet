@@ -5,20 +5,20 @@
 # http://www.codeandweb.com/texturepacker/unity
 #
 # Sprite sheet: Dinos.png (512 x 1024)
-# $TexturePacker:SmartUpdate:4f87a8fb7cf2551a3b463d197319139d:e26135882a0ffe2ed111d67fbfadb088:4d37cec38e4c9b9cc0468dd3d6aba1df$
+# $TexturePacker:SmartUpdate:ac6689ba14bb4ba3b221d31b6cb28bbd:915dbc3a9c07e8d32a479f8ed7d379ff:4d37cec38e4c9b9cc0468dd3d6aba1df$
 #
 
-Blue_Arm_L;298;701;112;52;0.5;0.5
-Blue_Arm_R;298;755;112;52;0.5;0.5
+Blue_Arm_L;286;580;112;52;0.5;0.5
+Blue_Arm_R;286;634;112;52;0.5;0.5
 Blue_Body;2;751;294;271;0.5;0.5
-Blue_Head;286;536;220;125;0.5;0.5
-Blue_Jaw;298;855;152;46;0.5;0.5
-Blue_Leg_L;2;391;65;96;0.5;0.5
-Blue_Leg_R;412;663;65;96;0.5;0.5
-Red_Arm_L;395;484;107;50;0.5;0.5
-Red_Arm_R;286;484;107;50;0.5;0.5
+Blue_Head;298;782;211;119;0.5;0.5
+Blue_Jaw;298;734;152;46;0.5;0.5
+Blue_Leg_L;286;482;65;96;0.5;0.5
+Blue_Leg_R;434;636;65;96;0.5;0.5
+Red_Arm_L;400;532;107;50;0.5;0.5
+Red_Arm_R;400;584;107;50;0.5;0.5
 Red_Body;2;489;282;260;0.5;0.5
 Red_Head;298;903;211;119;0.5;0.5
-Red_Jaw;298;809;146;44;0.5;0.5
-Red_Leg_L;69;395;62;92;0.5;0.5
-Red_Leg_R;446;761;62;92;0.5;0.5
+Red_Jaw;286;688;146;44;0.5;0.5
+Red_Leg_L;417;438;62;92;0.5;0.5
+Red_Leg_R;353;438;62;92;0.5;0.5

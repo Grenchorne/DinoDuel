@@ -11,12 +11,14 @@ ModelImporter:
     100006: polySurface3
     100008: polySurface4
     100010: polySurface5
+    100012: pCylinder4
     400000: //RootNode
     400002: polySurface1
     400004: polySurface2
     400006: polySurface3
     400008: polySurface4
     400010: polySurface5
+    400012: pCylinder4
     2300000: //RootNode
     2300002: polySurface2
     2300004: polySurface3
