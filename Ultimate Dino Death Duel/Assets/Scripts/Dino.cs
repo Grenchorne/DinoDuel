@@ -179,10 +179,13 @@ namespace DinoDuel
 			this.enabled = false;
 			Camera main = Camera.main;
 			main.GetComponent<Cam_Normalizer>().frozen = true;
-			main.GetComponent<Timer>().roundOver = true;
 
-			if(!main.GetComponent<Timer>().roundOver)
+			Timer timer = main.GetComponent<Timer>();
+
+			if(!timer.roundOver)
 				loseText.gameObject.SetActive(true);
+			
+			timer.roundOver = true;
 		}
 
 		[Show]
