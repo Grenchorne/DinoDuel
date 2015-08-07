@@ -55,12 +55,34 @@ namespace DinoDuel
 
 		private void applyDamage()
 		{
-			if(damageToApply >= 1 && damageToApply < 4)
+			//if(damageToApply >= 1 && damageToApply < 5)
+			//{	
+			//	Debug.Log("small hit");
+			//}
+
+			//else if(damageToApply >= 5 && damageToApply < 10)
+			//{
+			//	Debug.Log("med hit");
+			//}
+
+			//else
+			//{
+			//	Debug.Log("big hit");
+			//}
+
+			enemy.damage(damageToApply);
+			damageToApply = 0;
+			applyingDamage = false;
+		}
+
+		public void damage(float damage)
+		{
+			if(damage >= 1 && damage < 5)
 			{
 				Debug.Log("small hit");
 			}
 
-			else if(damageToApply >= 4 && damageToApply < 8)
+			else if(damage >= 5 && damage < 10)
 			{
 				Debug.Log("med hit");
 			}
@@ -70,12 +92,13 @@ namespace DinoDuel
 				Debug.Log("big hit");
 			}
 
-			enemy.Health -= damageToApply;
-			damageToApply = 0;
-			applyingDamage = false;
+			Health -= damage;
+			if(damageEffect)
+				damageEffect.Play();
 		}
 		#endregion
 
+		public ParticleSystem damageEffect { get; set; }
 
 		public Text loseText;
 		public Player player;
@@ -95,7 +118,7 @@ namespace DinoDuel
 		public HingeJoint2D LegLMover { get; set; }
 		public HingeJoint2D LegRMover { get; set; }
 		public HingeJoint2D PawRMover { get; set; }
-		public HingeJoint2D PawLMover { get; set; }		
+		public HingeJoint2D PawLMover { get; set; }
 
 		// Use this for initialization
 		void Start()

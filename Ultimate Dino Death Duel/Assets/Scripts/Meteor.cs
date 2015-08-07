@@ -34,7 +34,7 @@ namespace DinoDuel
 
 		void OnTriggerEnter2D(Collider2D collider)
 		{
-			Dino dino = collider.GetComponentInParent	<Dino>();
+			Dino dino = collider.GetComponentInParent<Dino>();
 			if(dino && dino == target)
 				collidedWithDino = true;
 
