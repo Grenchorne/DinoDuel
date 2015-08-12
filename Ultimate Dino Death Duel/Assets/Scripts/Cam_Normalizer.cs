@@ -22,6 +22,7 @@ namespace DinoDuel
 		}
 		void Update ()
 		{
+			if(!dino1 || !dino2)	frozen = true;
 			if(frozen)	return;
 			float xPos = Vector2.Lerp(dino1.position, dino2.position, 0.5f).x;
 			if(xPos < X_MIN)		xPos = X_MIN;

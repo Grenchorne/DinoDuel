@@ -55,21 +55,6 @@ namespace DinoDuel
 
 		private void applyDamage()
 		{
-			//if(damageToApply >= 1 && damageToApply < 5)
-			//{	
-			//	Debug.Log("small hit");
-			//}
-
-			//else if(damageToApply >= 5 && damageToApply < 10)
-			//{
-			//	Debug.Log("med hit");
-			//}
-
-			//else
-			//{
-			//	Debug.Log("big hit");
-			//}
-
 			enemy.damage(damageToApply);
 			damageToApply = 0;
 			applyingDamage = false;
@@ -77,28 +62,41 @@ namespace DinoDuel
 
 		public void damage(float damage)
 		{
-			if(damage >= 1 && damage < 5)
+			if(damage >= 1 && damage < 10)
 			{
-				Debug.Log("small hit");
+				Debug.Log("small hit : " + damage);
 			}
 
-			else if(damage >= 5 && damage < 10)
+			else if(damage >= 10 && damage < 15)
 			{
-				Debug.Log("med hit");
+				Debug.Log("med hit : " + damage);
 			}
 
 			else
 			{
-				Debug.Log("big hit");
+				Debug.Log("big hit : " + damage);
 			}
-
+			
 			Health -= damage;
-			if(damageEffect)
-				damageEffect.Play();
+			//if(damageEffect)
+			damageEffect.Play();
+			Transform target = transform;
+			switch(player)
+			{
+				case Dino.Player.Player1:
+					target = GameObject.Find("Blue_Head").transform;
+					break;
+				case Dino.Player.Player2:
+					target = GameObject.Find("Red_Head").transform;
+					break;
+			}
+			Vector2 pos = Camera.main.WorldToViewportPoint(target.position);
+			DamageNumber.Spawn(player, damage, new Vector2(pos.x, pos.y));
 		}
 		#endregion
 
 		public ParticleSystem damageEffect { get; set; }
+		//public DamageNumber damageNumber;
 
 		public Text loseText;
 		public Player player;
@@ -169,9 +167,9 @@ namespace DinoDuel
 			}
 
 			if(!applyingDamage && damageToApply > 1)
-			{
 				applyDamage();
-			}	
+			if(damageToApply < 1)
+				damageToApply = 0;
 		}
 
 		private void movePart(float axisInput, HingeJoint2D joint)
@@ -199,19 +197,11 @@ namespace DinoDuel
 					goto case DeathType.Damage;
 				default: goto case DeathType.Damage;
 			}
-			this.enabled = false;
-			Camera main = Camera.main;
-			main.GetComponent<Cam_Normalizer>().frozen = true;
-
-			Timer timer = main.GetComponent<Timer>();
-
-			if(!timer.roundOver)
+			Camera.main.GetComponent<Timer>().section = Timer.Section.Post;
+			if(enemy)
 				loseText.gameObject.SetActive(true);
-			
-			timer.roundOver = true;
 		}
 
-		[Show]
 		private void explode()
 		{
 			List<Rigidbody2D> rigidBodies = new List<Rigidbody2D>();
