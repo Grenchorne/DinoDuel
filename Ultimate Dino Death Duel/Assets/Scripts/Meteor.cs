@@ -50,8 +50,8 @@ namespace DinoDuel
 
 			else if(collider.name.Contains("Platform") && collidedWithDino)
 			{
-				Debug.Log("platform");
 				target.die(Dino.DeathType.Meteor);
+				gameObject.AddComponent<PartDestroyer>();
 				explode();
 			}
 		}

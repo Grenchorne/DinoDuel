@@ -34,23 +34,15 @@ namespace DinoDuel
 				Destroy(gameObject);
 		}
 
-		public static void Spawn(Dino.Player player, float points, Vector2 position)
+		public static void Spawn(Color color, float points, Vector2 position)
 		{
 			DamageNumber dn = new GameObject("DamageNumber").AddComponent<DamageNumber>();
 			dn.transform.position = position;
 			dn.transform.rotation = Quaternion.identity;
-			dn.GetComponent<GUIText>().text = points.ToString();
-			switch(player)
-			{
-				case Dino.Player.Player1:
-					dn.colour = Color.blue;
-					break;
-				case Dino.Player.Player2:
-					dn.colour = Color.red;
-					break;
-				default:
-					goto case Dino.Player.Player1;
-			}
+			dn.gText = dn.GetComponent<GUIText>();
+			dn.gText.text = Mathf.Floor(points).ToString();
+			dn.gText.fontSize = 24;
+			dn.colour = color;
 		}
 	}
 }

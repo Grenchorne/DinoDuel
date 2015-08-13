@@ -51,7 +51,7 @@ namespace DinoDuel
 		public float damageToApply { get; set; }
 		private bool applyingDamage;
 		public Dino enemy;
-		private Damager[] damagers;
+		private Weapon[] damagers;
 
 		private void applyDamage()
 		{
@@ -64,39 +64,26 @@ namespace DinoDuel
 		{
 			if(damage >= 1 && damage < 10)
 			{
-				Debug.Log("small hit : " + damage);
 			}
 
 			else if(damage >= 10 && damage < 15)
 			{
-				Debug.Log("med hit : " + damage);
 			}
 
 			else
 			{
-				Debug.Log("big hit : " + damage);
 			}
 			
 			Health -= damage;
-			//if(damageEffect)
 			damageEffect.Play();
-			Transform target = transform;
-			switch(player)
-			{
-				case Dino.Player.Player1:
-					target = GameObject.Find("Blue_Head").transform;
-					break;
-				case Dino.Player.Player2:
-					target = GameObject.Find("Red_Head").transform;
-					break;
-			}
-			Vector2 pos = Camera.main.WorldToViewportPoint(target.position);
-			DamageNumber.Spawn(player, damage, new Vector2(pos.x, pos.y));
+			Vector2 pos = Camera.main.WorldToViewportPoint(enemyHead.position);
+			DamageNumber.Spawn(color, damage, new Vector2(pos.x, pos.y));
 		}
 		#endregion
 
 		public ParticleSystem damageEffect { get; set; }
-		//public DamageNumber damageNumber;
+		Transform enemyHead; //Used for dmg effects positioning
+		Color color;
 
 		public Text loseText;
 		public Player player;
@@ -128,15 +115,19 @@ namespace DinoDuel
 				case Player.Player1:
 					inputPrefix = "P1_";
 					directionMod = 1;
+					enemyHead = GameObject.Find("Blue_Head").transform;
+					color = Color.blue;
 					break;
 				case Player.Player2:
 					inputPrefix = "P2_";
 					directionMod = -1;
+					enemyHead = GameObject.Find("Red_Head").transform;
+					color = Color.red;
 					break;
 				default: goto case Player.Player1;
 			}
 
-			damagers = GetComponentsInChildren<Damager>();
+			damagers = GetComponentsInChildren<Weapon>();
 
 			jawInput = inputPrefix + "Jaw";
 			headInput = inputPrefix + "Head";
@@ -157,7 +148,7 @@ namespace DinoDuel
 			movePart(Input.GetAxis(legRInput), LegRMover);
 
 			applyingDamage = false;
-			foreach(Damager d in damagers)
+			foreach(Weapon d in damagers)
 			{
 				if(d.applyingDamage)
 				{

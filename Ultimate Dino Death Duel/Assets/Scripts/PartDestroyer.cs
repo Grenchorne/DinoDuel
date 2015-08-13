@@ -5,17 +5,19 @@ namespace DinoDuel
 {
 	public class PartDestroyer : MonoBehaviour
 	{
-		SpriteRenderer spriteRenderer;
+		Renderer renderer;
 		// Use this for initialization
 		void Start ()
 		{
-			spriteRenderer = GetComponent<SpriteRenderer>();
+			renderer = GetComponent<Renderer>();
+			if(!renderer)
+				renderer = GetComponentInChildren<Renderer>();
 		}
 	
 		// Update is called once per frame
 		void Update ()
 		{
-			if(!spriteRenderer.isVisible)
+			if(!renderer.isVisible)
 				GameObject.Destroy(gameObject);
 		}
 	}
