@@ -22,17 +22,6 @@ namespace DinoDuel
 			set
 			{
 				if(_section == value)	return;
-				switch(_section)
-				{
-					case Section.Ready:
-						break;
-					case Section.Duel:
-						break;
-					case Section.Post:
-						//endPost
-						break;
-				}
-
 				switch(value)
 				{
 					case Section.Ready:
@@ -52,8 +41,13 @@ namespace DinoDuel
 						time = POST_TIME;
 						restartMenu.gameObject.SetActive(true);
 						lockControls();
+						if(player1)
+							if(player1.isAlive)
+								player2.loseText.gameObject.SetActive(true);
+						else if(player2)
+							if(player2.isAlive)
+								player1.loseText.gameObject.SetActive(true);
 						killPlayers();
-						//GetComponent<Cam_Normalizer>().frozen = true;
 						break;
 				}
 				_section = value;
@@ -110,13 +104,13 @@ namespace DinoDuel
 
 		private void killPlayers()
 		{
-			if(player1)
+			if(player1.isAlive)
 			{
 				Meteor meteor = GameObject.Instantiate<Meteor>(endRoundMeteor);
 				meteor.target = player1;
 			}
 
-			if(player2)
+			if(player2.isAlive)
 			{
 				Meteor meteor = GameObject.Instantiate<Meteor>(endRoundMeteor);
 				meteor.target = player2;

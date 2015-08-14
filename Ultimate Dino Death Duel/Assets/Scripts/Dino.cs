@@ -45,6 +45,8 @@ namespace DinoDuel
 				if(isDead)	die();
 			}
 		}
+
+		public bool isAlive { get; private set; }
 		#endregion
 
 		#region Damage Packing
@@ -109,6 +111,7 @@ namespace DinoDuel
 		void Start()
 		{
 			Health = H_STARTING;
+			isAlive = true;
 			string inputPrefix = "";
 			switch(player)
 			{
@@ -188,9 +191,9 @@ namespace DinoDuel
 					goto case DeathType.Damage;
 				default: goto case DeathType.Damage;
 			}
+			isAlive = false;
 			Camera.main.GetComponent<Timer>().section = Timer.Section.Post;
-			if(enemy)
-				loseText.gameObject.SetActive(true);
+			_health = 0;
 		}
 
 		private void explode()
