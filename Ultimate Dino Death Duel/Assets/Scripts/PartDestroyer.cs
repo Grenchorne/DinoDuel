@@ -5,7 +5,7 @@ namespace DinoDuel
 {
 	public class PartDestroyer : MonoBehaviour
 	{
-		Renderer renderer;
+		new Renderer renderer;
 		// Use this for initialization
 		void Start ()
 		{
