@@ -1,24 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace DinoDuel
 {
 	public class MenuManager : MonoBehaviour
 	{
 		public Menu mainMenu;
-		public Menu controlsMenu;
+		private Menu activeMenu;
 
 		public void showMenu(Menu menu)
 		{
-			Menu otherMenu = null;
-
-			if(menu == mainMenu)
-				otherMenu = controlsMenu;
-
-			else if(menu == controlsMenu)
-				otherMenu = mainMenu;
-
-			otherMenu.gameObject.SetActive(false);
+			if(activeMenu)	activeMenu.gameObject.SetActive(false);
+			activeMenu = menu;
 			menu.gameObject.SetActive(true);
 		}
 
