@@ -18,6 +18,11 @@ namespace DinoDuel
 
 		void Start()
 		{
+			Menu[] otherMenus = GameObject.FindObjectsOfType<Menu>();
+			foreach(Menu menu in otherMenus)
+				if(menu != mainMenu)
+					menu.gameObject.SetActive(false);
+			
 			showMenu(mainMenu);
 		}
 	}

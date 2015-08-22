@@ -1,21 +1,40 @@
 ﻿using UnityEngine;
 using Vexe.Runtime.Types;
 using System.Collections.Generic;
-using System.Text;
+using System;
 using System.IO;
+using System.Reflection;
 
 namespace DinoDuel
 {	
 	public class UserSettings : BetterScriptableObject
 	{
 
+		#region Min/Max Values
 		private static readonly float VAL_MIN = 0;
 		private static readonly float VAL_MAX = 1;
+		#endregion
 
-		private static readonly string ROOT;
-		private static readonly string PATH = " ";
-		private static readonly string FILENAME = "DD_UserPrefs";
-		private static readonly string EXT = ".txt";	
+		#region IO
+		private static string ROOT;
+		private static readonly string DIR = "/Settings/";
+		private static readonly string FILENAME = "UDDD_UserPrefs";
+		private static readonly string EXT = ".txt";
+		#endregion
+
+		#region Strings
+		private static readonly string _sep = ":";
+		#region English
+		private static readonly string en_mstr_tog = "Master_Toggle";
+		private static readonly string en_mstr_val = "Master_Level";
+		private static readonly string en_vo_tog = "VO_Toggle";
+		private static readonly string en_vo_val = "VO_Level";
+		private static readonly string en_sfx_tog = "SFX_Toggle";
+		private static readonly string en_sfx_val = "SFX_Level";
+		private static readonly string en_mus_tog = "MUS_Toggle";
+		private static readonly string en_mus_val = "MUS_Level";
+		#endregion
+		#endregion
 
 		#region Settings
 		#region Toggles
@@ -163,16 +182,114 @@ namespace DinoDuel
 			MUS_Level = VAL_MAX;
 		}
 
+		void findRoot()
+		{
+			ROOT = Application.dataPath;
+		}
+
 		#region Read/Write
 		public void ioRead()
 		{
-			Debug.Log("Read");
+			findRoot();
+			string file = ROOT + DIR + FILENAME + EXT;
+			if(!File.Exists(file))
+				initializePrefs(file);
 
+			using(StreamReader prefs = new StreamReader(file))
+			{
+				string line;
+				while((line = prefs.ReadLine()) != null)
+				{
+					foreach(PropertyInfo pInfo in GetType().GetProperties())
+					{
+						if(line.Contains(pInfo.Name))
+						{
+							string sValue = line.Remove(0, line.IndexOf(_sep) + 1);
+							Type pInfoType = pInfo.PropertyType;
+
+							object oValue = null;
+							switch(pInfoType.Name.ToLower())
+							{
+								case "string":
+									oValue = sValue;
+									break;
+								case "int32":
+									break;
+								case "single":
+									oValue = Convert.ToSingle(sValue);
+									break;
+								case "float":
+									Debug.Log("Handle float");
+									break;
+								case "boolean":
+									bool bValue = Convert.ToBoolean(sValue);
+									oValue = bValue;
+									break;
+								default:
+									Debug.Log("Unhandled type: " + pInfoType);
+									break;
+							}
+							if(oValue == null)	continue;
+							pInfo.SetValue(this, oValue, null);
+						}
+					}
+				}
+				prefs.Close();
+			}				
+
+			#if UNITY_EDITOR
+				UnityEditor.AssetDatabase.SaveAssets();
+				UnityEditor.AssetDatabase.Refresh();
+			#endif
 		}
 
 		public void ioWrite()
 		{
-			Debug.Log("Write");
+			findRoot();
+			string file = ROOT + DIR + FILENAME + EXT;
+			string[] lines = File.ReadAllLines(file);
+			using(StreamWriter prefs = new StreamWriter(file))
+			{
+				foreach(string line in lines)
+				{
+					foreach(PropertyInfo pInfo in GetType().GetProperties())
+					{
+						if(line.Contains(pInfo.Name))
+						{
+							string value = pInfo.GetValue(this, null).ToString();
+							prefs.WriteLine(pInfo.Name + _sep + value);
+						}
+					}
+				}
+			}
+			#if UNITY_EDITOR
+				UnityEditor.AssetDatabase.SaveAssets();
+				UnityEditor.AssetDatabase.Refresh();
+			#endif
+		}
+
+		private void initializePrefs(string file)
+		{
+			string subdir = ROOT + DIR;
+			Directory.CreateDirectory(subdir);
+
+			using (StreamWriter prefs = new StreamWriter(file))
+			{
+				prefs.WriteLine(en_mstr_tog + _sep + "True");
+				prefs.WriteLine(en_vo_tog + _sep + "True");
+				prefs.WriteLine(en_sfx_tog + _sep + "True");
+				prefs.WriteLine(en_mus_tog + _sep + "True");
+				prefs.WriteLine(en_mstr_val + _sep + VAL_MAX);
+				prefs.WriteLine(en_vo_val + _sep + VAL_MAX);
+				prefs.WriteLine(en_sfx_val + _sep + VAL_MAX);
+				prefs.WriteLine(en_mus_val + _sep + VAL_MAX);
+				prefs.Close();
+			}
+
+			#if UNITY_EDITOR
+				UnityEditor.AssetDatabase.SaveAssets();
+				UnityEditor.AssetDatabase.Refresh();
+			#endif
 		}
 		#endregion
 	}
