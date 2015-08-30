@@ -213,7 +213,7 @@ namespace DinoDuel
 			{
 				case DeathType.Damage:
 					disassemble();
-					aud_death.playClip();
+					//aud_death.playClip();
 					break;
 				case DeathType.Time:
 					goto case DeathType.Meteor;

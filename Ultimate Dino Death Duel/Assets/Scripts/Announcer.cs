@@ -17,6 +17,8 @@ namespace DinoDuel
 		const string s_announce_DUEL = "VO_Announcer_Duel!";
 		const string s_announce_OUTOFBOUNDS = "VO_Announcer_Out Of Bounds";
 		const string s_announce_TIMEUP = "VO_Announcer_Time Up";
+		const string s_announce_BlueDeath = "VO_DinoBlue Death";
+		const string s_announce_RedDeath = "VO_DinoRed Death";
 
 		public Text txt_ready;
 		public Text txt_duel;
@@ -33,6 +35,8 @@ namespace DinoDuel
 			TimeUp,
 			BlueWins,
 			RedWins,
+			BlueDeath,
+			RedDeath
 		}
 
 		bool b_ready;
@@ -41,6 +45,8 @@ namespace DinoDuel
 		bool b_timeUp;
 		bool b_blueWins;
 		bool b_redWins;
+		bool b_blueDeath;
+		bool b_redDeath;
 
 		private AudioClipManager audioClipManager;
 		private Queue<OnAnnounce> announcements;
@@ -58,6 +64,8 @@ namespace DinoDuel
 			b_timeUp = false;
 			b_blueWins = false;
 			b_redWins = false;
+			b_blueDeath = false;
+			b_redDeath = false;
 
 			clearTxt();
 
@@ -124,6 +132,8 @@ namespace DinoDuel
 					{
 						announcements.Enqueue(onBlueWin);
 						b_blueWins = true;
+						b_timeUp = true;
+						b_outOfBounds = true;
 					}
 					break;
 				case Announcement.RedWins:
@@ -131,6 +141,22 @@ namespace DinoDuel
 					{
 						announcements.Enqueue(onRedWin);
 						b_redWins = true;
+						b_timeUp = true;
+						b_outOfBounds = true;
+					}
+					break;
+				case Announcement.BlueDeath:
+					if(!b_blueDeath  && (!b_outOfBounds || !b_timeUp))
+					{
+						announcements.Enqueue(onBlueDeath);
+						b_blueDeath = true;
+					}
+					break;
+				case Announcement.RedDeath:
+					if(!b_redDeath && (!b_outOfBounds || !b_timeUp))
+					{
+						announcements.Enqueue(onRedDeath);
+						b_redDeath = true;
 					}
 					break;
 			}
@@ -161,6 +187,18 @@ namespace DinoDuel
 			clearTxt();
 			txt_redWins.gameObject.SetActive(true);
 			audioClipManager.playClip(s_announce_RED_WINS);
+			waitTime = WAIT_TIME;
+		}
+
+		private void onBlueDeath()
+		{
+			audioClipManager.playClip(s_announce_BlueDeath);
+			waitTime = WAIT_TIME;
+		}
+
+		private void onRedDeath()
+		{
+			audioClipManager.playClip(s_announce_RedDeath);
 			waitTime = WAIT_TIME;
 		}
 

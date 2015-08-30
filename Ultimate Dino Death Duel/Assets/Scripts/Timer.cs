@@ -45,12 +45,22 @@ namespace DinoDuel
 						restartMenu.gameObject.SetActive(true);
 						lockControls();
 						if(player1)
+						{
 							if(player1.isAlive)
+							{
+								announcer.announce(Announcer.Announcement.RedDeath);
 								announcer.announce(Announcer.Announcement.BlueWins);
+							}
+						}
 						
-						else if(player2)
+						if(player2)
+						{
 							if(player2.isAlive)
+							{
+								announcer.announce(Announcer.Announcement.BlueDeath);
 								announcer.announce(Announcer.Announcement.RedWins);
+							}
+						}
 
 						//killPlayers();
 						break;
