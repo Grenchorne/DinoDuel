@@ -23,6 +23,15 @@ namespace DinoDuel
 			Lava
 		}
 
+		#region Audio
+		public AudioClipManager aud_explosion;
+		public AudioClipManager aud_hit;
+		public AudioClipManager aud_dmg_1;
+		public AudioClipManager aud_dmg_2;
+		public AudioClipManager aud_dmg_3;
+		public AudioClipManager aud_death;
+		#endregion
+
 		#region Health
 		private static readonly float H_MAX = 100;
 		private static readonly float H_MIN = 0;
@@ -66,14 +75,17 @@ namespace DinoDuel
 		{
 			if(damage >= 1 && damage < 10)
 			{
+				aud_dmg_1.playClip();
 			}
 
 			else if(damage >= 10 && damage < 15)
 			{
+				aud_dmg_2.playClip();
 			}
 
 			else
 			{
+				aud_dmg_3.playClip();
 			}
 			
 			Health -= damage;
@@ -93,6 +105,8 @@ namespace DinoDuel
 
 		int directionMod = 1;
 
+
+		private bool usesInput;
 		string jawInput;
 		string headInput;
 		string pawLInput;
@@ -110,6 +124,7 @@ namespace DinoDuel
 		// Use this for initialization
 		void Start()
 		{
+			usesInput = true;
 			Health = H_STARTING;
 			isAlive = true;
 			string inputPrefix = "";
@@ -143,12 +158,15 @@ namespace DinoDuel
 		// Update is called once per frame
 		void Update()
 		{
-			movePart(Input.GetAxis(jawInput), JawMover);
-			movePart(Input.GetAxis(headInput), HeadMover);
-			movePart(Input.GetAxis(pawLInput), PawLMover);
-			movePart(Input.GetAxis(pawRInput), PawRMover);
-			movePart(Input.GetAxis(legLInput), LegLMover);
-			movePart(Input.GetAxis(legRInput), LegRMover);
+			if(usesInput)
+			{
+				movePart(Input.GetAxis(jawInput), JawMover);
+				movePart(Input.GetAxis(headInput), HeadMover);
+				movePart(Input.GetAxis(pawLInput), PawLMover);
+				movePart(Input.GetAxis(pawRInput), PawRMover);
+				movePart(Input.GetAxis(legLInput), LegLMover);
+				movePart(Input.GetAxis(legRInput), LegRMover);
+			}
 
 			applyingDamage = false;
 			foreach(Weapon d in damagers)
@@ -175,51 +193,101 @@ namespace DinoDuel
 			else				jm.motorSpeed = -100 * directionMod;
 			joint.motor = jm;
 		}
-
+		
+		#region Death Handling
+		
+		private Rigidbody2D[] rigidBodies;
+		[Show]
 		public void die(DeathType deathType = DeathType.Damage)
 		{
+			#if UNITY_EDITOR
+			if(!Application.isPlaying)
+			{
+				Debug.LogWarning("Dino death not available in editor");
+				return;
+			}
+			#endif
+			usesInput = false;
+			rigidBodies = transform.GetComponentsInChildren<Rigidbody2D>();
 			switch(deathType)
 			{
 				case DeathType.Damage:
-					explode();
+					disassemble();
+					aud_death.playClip();
 					break;
 				case DeathType.Time:
-					goto case DeathType.Damage;
+					goto case DeathType.Meteor;
 				case DeathType.Meteor:
-					goto case DeathType.Damage;
+					explode();
+					break;
 				case DeathType.Lava:
-					goto case DeathType.Damage;
-				default: goto case DeathType.Damage;
+					goto case DeathType.Meteor;
+				default:
+					goto case DeathType.Meteor;
 			}
 			isAlive = false;
 			Camera.main.GetComponent<Timer>().section = Timer.Section.Post;
 			_health = 0;
 		}
 
+		
 		private void explode()
 		{
-			List<Rigidbody2D> rigidBodies = new List<Rigidbody2D>();
-			foreach(Rigidbody2D rb in transform.GetComponentsInChildren<Rigidbody2D>())
-			{
-				rb.fixedAngle = false;
-				rb.gameObject.AddComponent<PartDestroyer>();
-				rigidBodies.Add(rb);
-				
-				HingeJoint2D hingeJoint = rb.GetComponent<HingeJoint2D>();
-				if(hingeJoint)		GameObject.Destroy(hingeJoint);
-				
-				BoxCollider2D boxCollider2D = rb.GetComponent<BoxCollider2D>();
-				if(boxCollider2D)	GameObject.Destroy(boxCollider2D);
-			}
-			transform.DetachChildren();
-
 			foreach(Rigidbody2D rb in rigidBodies)
 			{
-				float randX = Random.Range(200, 1000);
-				float randY = Random.Range(200, 1000);
-				rb.AddForce(new Vector2(randX, randY));
+				releaseRigidBody(rb);
+				noclipRigidBody(rb);
+				projectRigidBody(rb);
 			}
+			
+			aud_explosion.playClip();
 			this.enabled = false;
 		}
+
+		private void disassemble()
+		{
+			foreach(HingeJoint2D joint in GetComponentsInChildren<Joint2D>())
+				joint.useMotor = false;
+			
+			StartCoroutine(dropComponents());
+		}
+
+		private void releaseRigidBody(Rigidbody2D rb)
+		{
+			rb.fixedAngle = false;
+			rb.gameObject.AddComponent<PartDestroyer>();
+
+			HingeJoint2D hingeJoint = rb.GetComponent<HingeJoint2D>();
+			if(hingeJoint)
+				GameObject.Destroy(hingeJoint);
+
+			rb.transform.parent = null;
+		}
+
+		private void noclipRigidBody(Rigidbody2D rb)
+		{
+			BoxCollider2D boxCollider2D = rb.GetComponent<BoxCollider2D>();
+			if(boxCollider2D)
+				GameObject.Destroy(boxCollider2D);
+		}
+
+		private void projectRigidBody(Rigidbody2D rb)
+		{
+			float randX = Random.Range(200, 1000);
+			float randY = Random.Range(200, 1000);
+			rb.AddForce(new Vector2(randX, randY));
+		}
+
+		IEnumerator dropComponents()
+		{
+			Rigidbody2D[] _rigidBodies = rigidBodies;
+			foreach(Rigidbody2D rb in _rigidBodies)
+			{
+				releaseRigidBody(rb);
+				noclipRigidBody(rb);
+				yield return new WaitForSeconds(Random.Range(0.25f, 0.75f));
+			}
+		}
+		#endregion
 	}
 }

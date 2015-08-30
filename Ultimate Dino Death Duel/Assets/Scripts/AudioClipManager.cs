@@ -54,6 +54,21 @@ namespace DinoDuel
 			audioSource.Play();
 		}
 
+		public void playClip(string clipName)
+		{
+			for(int i = 0; i < AudioClips.Length; i++)
+			{
+				AudioClip audioClip = AudioClips[i];
+				if(audioClip.name == clipName)
+				{
+					index = i;
+					audioSource.clip = getClip(i);
+					audioSource.Play();
+					return;
+				}
+			}
+		}
+
 		public static void CreateInstance(ClipType clipType)
 		{
 
@@ -82,9 +97,9 @@ namespace DinoDuel
 				}
 			}
 
-			#if UNITY_EDITOR
-				UnityEditor.Highlighter.Highlight("Inspector", audioClip.name);
-			#endif
+			//#if UNITY_EDITOR
+			//	UnityEditor.Highlighter.Highlight("Inspector", audioClip.name);
+			//#endif
 			this.index = index;
 			return audioClip;
 		}
@@ -93,6 +108,7 @@ namespace DinoDuel
 		{
 			base.Reset();
 			audioSource = GetComponent<AudioSource>();
+			Clip_Type = ClipType.Shuffle;
 		}
 	}
 }

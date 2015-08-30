@@ -10,7 +10,8 @@ namespace DinoDuel
 		void OnTriggerEnter2D(Collider2D collider)
 		{
 			Dino dino = collider.GetComponentInParent<Dino>();
-			if(dino)	dino.die(Dino.DeathType.Lava);
+			Announcer.instance.announce(Announcer.Announcement.OutOfBounds);
+			if(dino && dino.Health > 0)	dino.die(Dino.DeathType.Lava);
 		}
 	}
 }

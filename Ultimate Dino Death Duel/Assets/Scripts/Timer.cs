@@ -12,6 +12,7 @@ namespace DinoDuel
 		private static float POST_TIME = 0;
 
 		public enum Section { None, Ready, Duel, Post }
+		Announcer announcer;
 		
 		[Serialize][Hide]
 		private Section _section;
@@ -25,12 +26,14 @@ namespace DinoDuel
 				switch(value)
 				{
 					case Section.Ready:
+						announcer.announce(Announcer.Announcement.Ready);
 						time = READY_TIME;
 						restartMenu.gameObject.SetActive(false);
 						readyText.gameObject.SetActive(true);
 						lockControls();
 						break;
 					case Section.Duel:
+						announcer.announce(Announcer.Announcement.Duel);
 						time = DUEL_TIME;
 						readyText.gameObject.SetActive(false);
 						duelText.gameObject.SetActive(true);
@@ -43,11 +46,13 @@ namespace DinoDuel
 						lockControls();
 						if(player1)
 							if(player1.isAlive)
-								player2.loseText.gameObject.SetActive(true);
+								announcer.announce(Announcer.Announcement.BlueWins);
+						
 						else if(player2)
 							if(player2.isAlive)
-								player1.loseText.gameObject.SetActive(true);
-						killPlayers();
+								announcer.announce(Announcer.Announcement.RedWins);
+
+						//killPlayers();
 						break;
 				}
 				_section = value;
@@ -65,9 +70,10 @@ namespace DinoDuel
 
 		public Menu restartMenu;
 		public Meteor endRoundMeteor;
-	
+
 		void Awake()
 		{
+			announcer = FindObjectOfType<Announcer>();
 			section = Section.Ready;
 		}
 
@@ -115,6 +121,23 @@ namespace DinoDuel
 				Meteor meteor = GameObject.Instantiate<Meteor>(endRoundMeteor);
 				meteor.target = player2;
 			}
+		}
+
+		private void setPlayerWin(Dino.Player player)
+		{
+			switch(player)
+			{
+				case Dino.Player.Player1:
+					break;
+				case Dino.Player.Player2:
+					break;
+			}
+		}
+
+		public override void Reset()
+		{
+			base.Reset();
+			announcer = GetComponent<Announcer>();
 		}
 	}
 }
