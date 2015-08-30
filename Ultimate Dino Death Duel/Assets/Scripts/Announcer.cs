@@ -9,7 +9,7 @@ namespace DinoDuel
 	public class Announcer : BetterBehaviour
 	{
 		const float WAIT_TIME = 2;
-		const string s_announce_READY = "";
+		const string s_announce_READY = "VO_Announcer_Ready";
 
 		const string s_announce_BLUE_WINS = "VO_Announcer_Blue Wins";
 		const string s_announce_BLUE_WINS_BONUS = "VO_Announcer_Blueh Wuens";
@@ -101,7 +101,6 @@ namespace DinoDuel
 					{
 						announcements.Enqueue(onReady);
 						b_ready = true;
-
 					}
 					break;
 				case Announcement.Duel:
@@ -206,8 +205,6 @@ namespace DinoDuel
 		{
 			clearTxt();
 			txt_ready.gameObject.SetActive(true);
-			Debug.LogWarning("Need to get READY sound");
-			return;
 			audioClipManager.playClip(s_announce_READY);
 			waitTime = WAIT_TIME;
 		}

@@ -29,14 +29,14 @@ namespace DinoDuel
 						announcer.announce(Announcer.Announcement.Ready);
 						time = READY_TIME;
 						restartMenu.gameObject.SetActive(false);
-						readyText.gameObject.SetActive(true);
+						//readyText.gameObject.SetActive(true);
 						lockControls();
 						break;
 					case Section.Duel:
 						announcer.announce(Announcer.Announcement.Duel);
 						time = DUEL_TIME;
 						readyText.gameObject.SetActive(false);
-						duelText.gameObject.SetActive(true);
+						//duelText.gameObject.SetActive(true);
 						restartMenu.gameObject.SetActive(false);
 						unlockControls();
 						break;
@@ -61,8 +61,7 @@ namespace DinoDuel
 								announcer.announce(Announcer.Announcement.RedWins);
 							}
 						}
-
-						//killPlayers();
+						killPlayers();
 						break;
 				}
 				_section = value;
@@ -84,7 +83,12 @@ namespace DinoDuel
 		void Awake()
 		{
 			announcer = FindObjectOfType<Announcer>();
+		}
+
+		void Start()
+		{
 			section = Section.Ready;
+
 		}
 
 		void Update()
