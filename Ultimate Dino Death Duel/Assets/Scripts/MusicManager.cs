@@ -32,7 +32,6 @@ namespace DinoDuel
 			get { return _activeTrack; }
 			set
 			{
-				Debug.Log(value);
 				switch(value)
 				{
 					case Track.MainMenu:

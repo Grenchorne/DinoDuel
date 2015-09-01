@@ -29,14 +29,12 @@ namespace DinoDuel
 						announcer.announce(Announcer.Announcement.Ready);
 						time = READY_TIME;
 						restartMenu.gameObject.SetActive(false);
-						//readyText.gameObject.SetActive(true);
 						lockControls();
 						break;
 					case Section.Duel:
 						announcer.announce(Announcer.Announcement.Duel);
 						time = DUEL_TIME;
 						readyText.gameObject.SetActive(false);
-						//duelText.gameObject.SetActive(true);
 						restartMenu.gameObject.SetActive(false);
 						unlockControls();
 						break;
@@ -61,7 +59,6 @@ namespace DinoDuel
 								announcer.announce(Announcer.Announcement.RedWins);
 							}
 						}
-						killPlayers();
 						break;
 				}
 				_section = value;
@@ -102,7 +99,11 @@ namespace DinoDuel
 					break;
 
 				case Section.Duel:
-					if(time <= 0)	section = Section.Post;
+					if(time <= 0)
+					{
+						announcer.announce(Announcer.Announcement.TimeUp);
+						section = Section.Post;
+					}
 					if(duelText.isActiveAndEnabled && time < DUEL_TIME - 2)
 						duelText.gameObject.SetActive(false);
 					timerText.text = Mathf.Floor(time).ToString();
@@ -122,7 +123,7 @@ namespace DinoDuel
 			if(player2)	player2.enabled = true;
 		}
 
-		private void killPlayers()
+		public void killPlayers()
 		{
 			if(player1.isAlive)
 			{

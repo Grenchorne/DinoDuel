@@ -124,6 +124,8 @@ namespace DinoDuel
 						announcements.Enqueue(onTimeUp);
 						b_timeUp = true;
 						b_outOfBounds = true;
+						b_redWins = true;
+						b_blueWins = true;
 					}
 					break;
 				case Announcement.BlueWins:
@@ -179,6 +181,7 @@ namespace DinoDuel
 			if(rand == 1)	audioClipManager.playClip(s_announce_BLUE_WINS_BONUS);
 			else			audioClipManager.playClip(s_announce_BLUE_WINS);
 			waitTime = WAIT_TIME;
+			GameObject.FindObjectOfType<Timer>().killPlayers();
 		}
 
 		private void onRedWin()
@@ -187,6 +190,7 @@ namespace DinoDuel
 			txt_redWins.gameObject.SetActive(true);
 			audioClipManager.playClip(s_announce_RED_WINS);
 			waitTime = WAIT_TIME;
+			GameObject.FindObjectOfType<Timer>().killPlayers();
 		}
 
 		private void onBlueDeath()
@@ -231,6 +235,7 @@ namespace DinoDuel
 			txt_timeUp.gameObject.SetActive(true);
 			audioClipManager.playClip(s_announce_TIMEUP);
 			waitTime = WAIT_TIME;
+			GameObject.FindObjectOfType<Timer>().killPlayers();
 		}
 	}
 }
