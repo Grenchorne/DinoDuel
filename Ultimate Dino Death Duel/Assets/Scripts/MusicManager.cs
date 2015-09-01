@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Vexe.Runtime.Types;
 using System.Collections.Generic;
 using IEnumerator = System.Collections.IEnumerator;
 using UnityEngine.Audio;
@@ -6,10 +7,8 @@ using UnityEngine.Audio;
 namespace DinoDuel
 {	
 	[RequireComponent(typeof(AudioSource))]
-	public class MusicManager : MonoBehaviour
+	public class MusicManager : BetterBehaviour
 	{
-		[SerializeField]
-		static bool spawned = false;
 		public float Level
 		{
 			get { return audioSource.volume; }
@@ -25,13 +24,15 @@ namespace DinoDuel
 			DinoRedWin,
 		}
 
-		[SerializeField][HideInInspector]
+		[Serialize][Hide]
 		private Track _activeTrack;
+		[Show]
 		public Track ActiveTrack
 		{
 			get { return _activeTrack; }
 			set
 			{
+				Debug.Log(value);
 				switch(value)
 				{
 					case Track.MainMenu:
@@ -53,119 +54,60 @@ namespace DinoDuel
 			}
 		}
 
-		void OnDestroy()
-		{
-			Debug.Log("Destroying " + name);
-		}
-
 		public AudioClip MainMenuTrack;
 		public AudioClip DuelTrack;
 		public AudioClip DinoRedWin;
 		public AudioClip DinoBlueWin;
 		private AudioClip currentTrack;
 
-		public MusicManager instance;
+		public static MusicManager Instance
+		{ get { return GameObject.FindObjectOfType<MusicManager>(); } }
 
-		[SerializeField]
-		[HideInInspector]
+		[Serialize][Hide]
 		int currentLevel;
 		void OnLevelWasLoaded(int level)
 		{
-			if(level == currentLevel)
-				return;
+			if(Instance != this)		return;
+			if(level == currentLevel)	return;
 			switch(Application.loadedLevelName)
 			{
 				case "MainMenu":
-					Debug.Log("Main menu loaded");
 					ActiveTrack = Track.MainMenu;
 					fadeIn();
 					break;
 				case "Scene1":
-					Debug.Log("Scene1 loaded");
 					ActiveTrack = Track.Duel;
 					audioSource.volume = 1;
 					break;
 			}
-			currentLevel = Application.loadedLevel;
+			currentLevel = level;
 		}
 
 		void Awake()
 		{
-			//if(spawned)
-			//{
-			//	Debug.Log("Spawned");
-			//	if(instance)
-			//	{
-			//		Debug.Log("Instance exists");
-			//		if(instance == this)
-			//		{
-			//			Debug.Log("This is instance");
-			//		}
-			//		else
-			//		{
-			//			Debug.Log("This is not instance");
-			//		}
-			//	}
-			//	else
-			//	{
-			//		Debug.Log("Instance does not exist");
-			//	}
-			//}
-			//else
-			//{
-			//	Debug.Log("Not spawned");
-			//}
-			Debug.Log("Awake");
-
-			Debug.Log("Spawned = " + spawned);
-
-			if(instance)
-				Debug.Log("Instance exists: " + instance.name);
-			else
-				Debug.Log("Instance doesn't exist.");
-			if(instance == this)
-				Debug.Log("Instance = this");
-			else
-				Debug.Log("Instance != this");
-
-			//if(instance && instance != this)
-			//{
-			//	Debug.Log("Instance exists");
-			//	Destroy(gameObject);
-			//	return;
-			//}
-
-			if(instance && instance != this)
+			if(Instance && Instance != this)
 			{
-				Debug.Log("<color=red>Mark " + name + " for destroy</color>");
 				Destroy(gameObject);
 				return;
 			}
-
-			Debug.Log("<color=green>Assigning instance to " + name + "</color> ");
-			instance = this;
-			DontDestroyOnLoad(this);
+			DontDestroyOnLoad(transform.root);
 			audioSource = GetComponent<AudioSource>();
 			configureAudioSource();
-			spawned = true;
 		}
 
 		void Start()
 		{
-			//Debug.Log("Start");
-			//switch(Application.loadedLevelName)
-			//{
-			//	case "MainMenu":
-			//		Debug.Log("Main menu loaded");
-			//		ActiveTrack = Track.MainMenu;
-			//		fadeIn();
-			//		break;
-			//	case "Scene1":
-			//		Debug.Log("Scene1 loaded");
-			//		ActiveTrack = Track.Duel;
-			//		audioSource.volume = 1;
-			//		break;
-			//}
+			switch(Application.loadedLevelName)
+			{
+				case "MainMenu":
+					ActiveTrack = Track.MainMenu;
+					fadeIn();
+					break;
+				case "Scene1":
+					ActiveTrack = Track.Duel;
+					audioSource.volume = 1;
+					break;
+			}
 		}
 
 		private void configureAudioSource()
