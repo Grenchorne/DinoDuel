@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using Vexe.Runtime.Types;
 using System.Collections.Generic;
 using IEnumerator = System.Collections.IEnumerator;
 using UnityEngine.Audio;
@@ -7,13 +6,16 @@ using UnityEngine.Audio;
 namespace DinoDuel
 {	
 	[RequireComponent(typeof(AudioSource))]
-	public class MusicManager : BetterBehaviour
+	public class MusicManager : MonoBehaviour
 	{
+		[SerializeField]
+		static bool spawned = false;
 		public float Level
 		{
 			get { return audioSource.volume; }
 			set { audioSource.volume = value; }
 		}
+
 		private AudioSource audioSource;
 		public enum Track
 		{
@@ -23,10 +25,8 @@ namespace DinoDuel
 			DinoRedWin,
 		}
 
-		[Serialize]
-		[Hide]
+		[SerializeField][HideInInspector]
 		private Track _activeTrack;
-		[Show]
 		public Track ActiveTrack
 		{
 			get { return _activeTrack; }
@@ -48,48 +48,124 @@ namespace DinoDuel
 						break;
 				}
 				_activeTrack = value;
+				audioSource.clip = currentTrack;
+				audioSource.Play();
 			}
 		}
 
-		public AudioClip MainMenuTrack { get; set; }
-		public AudioClip DuelTrack { get; set; }
-		public AudioClip DinoRedWin { get; set; }
-		public AudioClip DinoBlueWin { get; set; }
-		private AudioClip currentTrack { get; set; }
-
-		public static MusicManager Instance	{ get; set; }
-
-		void Awake()
+		void OnDestroy()
 		{
-			if(!Instance && Instance != this)
-			{
-				Destroy(gameObject);
+			Debug.Log("Destroying " + name);
+		}
+
+		public AudioClip MainMenuTrack;
+		public AudioClip DuelTrack;
+		public AudioClip DinoRedWin;
+		public AudioClip DinoBlueWin;
+		private AudioClip currentTrack;
+
+		public MusicManager instance;
+
+		[SerializeField]
+		[HideInInspector]
+		int currentLevel;
+		void OnLevelWasLoaded(int level)
+		{
+			if(level == currentLevel)
 				return;
-			}
-
-			Debug.Log("Got here.");
-			Instance = this;
-			DontDestroyOnLoad(gameObject);
-			audioSource = GetComponent<AudioSource>();
-			configureAudioSource();
-		}
-
-		void Start()
-		{
 			switch(Application.loadedLevelName)
 			{
 				case "MainMenu":
+					Debug.Log("Main menu loaded");
 					ActiveTrack = Track.MainMenu;
 					fadeIn();
 					break;
 				case "Scene1":
+					Debug.Log("Scene1 loaded");
 					ActiveTrack = Track.Duel;
 					audioSource.volume = 1;
 					break;
 			}
-			audioSource.clip = currentTrack;
-			audioSource.Play();
+			currentLevel = Application.loadedLevel;
+		}
 
+		void Awake()
+		{
+			//if(spawned)
+			//{
+			//	Debug.Log("Spawned");
+			//	if(instance)
+			//	{
+			//		Debug.Log("Instance exists");
+			//		if(instance == this)
+			//		{
+			//			Debug.Log("This is instance");
+			//		}
+			//		else
+			//		{
+			//			Debug.Log("This is not instance");
+			//		}
+			//	}
+			//	else
+			//	{
+			//		Debug.Log("Instance does not exist");
+			//	}
+			//}
+			//else
+			//{
+			//	Debug.Log("Not spawned");
+			//}
+			Debug.Log("Awake");
+
+			Debug.Log("Spawned = " + spawned);
+
+			if(instance)
+				Debug.Log("Instance exists: " + instance.name);
+			else
+				Debug.Log("Instance doesn't exist.");
+			if(instance == this)
+				Debug.Log("Instance = this");
+			else
+				Debug.Log("Instance != this");
+
+			//if(instance && instance != this)
+			//{
+			//	Debug.Log("Instance exists");
+			//	Destroy(gameObject);
+			//	return;
+			//}
+
+			if(instance && instance != this)
+			{
+				Debug.Log("<color=red>Mark " + name + " for destroy</color>");
+				Destroy(gameObject);
+				return;
+			}
+
+			Debug.Log("<color=green>Assigning instance to " + name + "</color> ");
+			instance = this;
+			DontDestroyOnLoad(this);
+			audioSource = GetComponent<AudioSource>();
+			configureAudioSource();
+			spawned = true;
+		}
+
+		void Start()
+		{
+			//Debug.Log("Start");
+			//switch(Application.loadedLevelName)
+			//{
+			//	case "MainMenu":
+			//		Debug.Log("Main menu loaded");
+			//		ActiveTrack = Track.MainMenu;
+			//		fadeIn();
+			//		break;
+			//	case "Scene1":
+			//		Debug.Log("Scene1 loaded");
+			//		ActiveTrack = Track.Duel;
+			//		audioSource.volume = 1;
+			//		break;
+			//}
 		}
 
 		private void configureAudioSource()

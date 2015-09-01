@@ -5,6 +5,7 @@ namespace DinoDuel
 {
 	[RequireComponent(typeof(BoxCollider2D))]
 	[RequireComponent(typeof(Rigidbody2D))]
+	[RequireComponent(typeof(AudioClipManager))]
 	public class Meteor : MonoBehaviour
 	{
 		public Dino target;
@@ -13,6 +14,7 @@ namespace DinoDuel
 
 		private Rigidbody2D rigidBody2D;
 		private BoxCollider2D boxCollider2D;
+		private AudioClipManager audioClipManager;
 		bool collidedWithDino = false;
 
 
@@ -20,6 +22,8 @@ namespace DinoDuel
 		{
 			rigidBody2D = GetComponent<Rigidbody2D>();
 			boxCollider2D = GetComponent<BoxCollider2D>();
+			audioClipManager = GetComponent<AudioClipManager>();
+
 			boxCollider2D.isTrigger = true;
 			if(explosion)
 				explosion.enableEmission = false;
@@ -58,6 +62,7 @@ namespace DinoDuel
 
 		private void explode()
 		{
+			audioClipManager.playClip(AudioClipManager.ClipType.Shuffle);
 			ParticleSystem expl = GameObject.Instantiate<ParticleSystem>(explosion);
 			expl.transform.position = transform.position;
 			expl.Emit(10);
