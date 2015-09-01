@@ -221,7 +221,8 @@ namespace DinoDuel
 					explode();
 					break;
 				case DeathType.Lava:
-					goto case DeathType.Meteor;
+					//disassemble();
+					break;
 				default:
 					goto case DeathType.Meteor;
 			}
@@ -276,6 +277,17 @@ namespace DinoDuel
 			float randX = Random.Range(200, 1000);
 			float randY = Random.Range(200, 1000);
 			rb.AddForce(new Vector2(randX, randY));
+		}
+
+		public SpriteRenderer skeletonRenderer;
+		public void showSkeleton()
+		{
+			if(skeletonRenderer)
+			{
+				foreach(SpriteRenderer sp in GetComponentsInChildren<SpriteRenderer>())
+					sp.enabled = false;
+				skeletonRenderer.enabled = true;
+			}
 		}
 
 		IEnumerator dropComponents()

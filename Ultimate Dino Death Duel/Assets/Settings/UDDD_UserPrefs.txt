@@ -1,8 +1,8 @@
-Master_Toggle:True
-VO_Toggle:True
-SFX_Toggle:True
-MUS_Toggle:True
-Master_Level:0.5853158
+Master_Toggle:False
+VO_Toggle:False
+SFX_Toggle:False
+MUS_Toggle:False
+Master_Level:0.3
 VO_Level:0
-SFX_Level:0.3085532
+SFX_Level:0.2
 MUS_Level:0.8887625
