@@ -194,8 +194,6 @@ namespace DinoDuel
 					break;
 				}
 			}
-			Debug.Log("Applying damage: " + applyingDamage);
-			Debug.Log("Damage to apply: " + damageToApply);
 			if(!applyingDamage && damageToApply > 1)
 				applyDamage();
 			if(damageToApply < 1)
