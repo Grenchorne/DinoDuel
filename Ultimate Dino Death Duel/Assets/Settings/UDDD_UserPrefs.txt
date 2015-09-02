@@ -5,6 +5,6 @@ MUS_Toggle:True
 Master_Level:0.2
 VO_Level:0.1607747
 SFX_Level:1
-MUS_Level:0.08401936
+MUS_Level:0.1
 Damage_Toggle:False
 Push_Toggle:True

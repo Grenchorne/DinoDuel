@@ -426,6 +426,16 @@ namespace DinoDuel
 			}
 		}
 
+		public static void BindWeapon(Weapon[] weapons)
+		{
+			UserSettings instance = Instance;
+			foreach(Weapon weapon in weapons)
+			{
+				weapon.damage_toggle = instance.Damage_Toggle;
+				weapon.push_toggle = instance.Push_Toggle;
+			}
+		}
+
 		public static void UpdateSceneLevels()
 		{
 			foreach(AudioClipManager clipman in GameObject.FindObjectsOfType<AudioClipManager>())

@@ -6,10 +6,11 @@ namespace DinoDuel
 	public class Weapon : MonoBehaviour
 	{
 		private Dino dino;
+		public bool damage_toggle = true;
 		private const float damageMod = 0.00065f;
 		private Rigidbody2D rigidBody2D;
 		
-		public bool willPush = false;
+		public bool push_toggle = false;
 		public float pushForce = 10;
 		private Rigidbody2D enemyRigidBody;
 
@@ -30,14 +31,21 @@ namespace DinoDuel
 					pushForce *= -1;
 					break;
 			}
+			if(damage_toggle &&	(name.Contains("Head")
+							 ||  name.Contains("Jaw")))
+			{
+				push_toggle = false;
+			}
+				
 		}
 
 		private void OnTriggerStay2D(Collider2D collider)
 		{
 			float angularV = Mathf.Abs(rigidBody2D.angularVelocity);
 			applyingDamage = angularV > 1;
-			if(!applyingDamage ||
-				!collider.GetComponentInParent<Dino>())
+			if(!damage_toggle ||
+				!collider.GetComponentInParent<Dino>() ||
+				!applyingDamage )
 				return;
 			dino.damageToApply += angularV * damageMod;
 		}
@@ -45,7 +53,7 @@ namespace DinoDuel
 		private void OnTriggerEnter2D(Collider2D collider)
 		{
 			float angularV = Mathf.Abs(rigidBody2D.angularVelocity);
-			if(!willPush ||
+			if(!push_toggle ||
 				!collider.GetComponentInParent<Dino>() ||
 				angularV < 1)
 				return;

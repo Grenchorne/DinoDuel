@@ -153,6 +153,7 @@ namespace DinoDuel
 
 			if(head)	findEyes(head);
 			weapons = GetComponentsInChildren<Weapon>();
+			UserSettings.BindWeapon(weapons);
 
 			jawInput = inputPrefix + "Jaw";
 			headInput = inputPrefix + "Head";
