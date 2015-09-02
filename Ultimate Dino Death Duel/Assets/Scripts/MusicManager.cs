@@ -7,7 +7,7 @@ using UnityEngine.Audio;
 namespace DinoDuel
 {	
 	[RequireComponent(typeof(AudioSource))]
-	public class MusicManager : BetterBehaviour
+	public class MusicManager : BetterBehaviour, iAudio
 	{
 		public float Level
 		{
@@ -76,7 +76,6 @@ namespace DinoDuel
 					break;
 				case "Scene1":
 					ActiveTrack = Track.Duel;
-					audioSource.volume = 1;
 					break;
 			}
 			currentLevel = level;
@@ -104,20 +103,26 @@ namespace DinoDuel
 					break;
 				case "Scene1":
 					ActiveTrack = Track.Duel;
-					audioSource.volume = 1;
 					break;
 			}
 		}
 
+		public void updateLevel()
+		{
+			UserSettings.BindLevel(audioSource, AudioClipManager.ClipType.MUS);
+		}
+
 		private void configureAudioSource()
 		{
+			updateLevel();
 			audioSource.loop = true;
 		}
 
 		private void fadeIn()
 		{
+			float level = audioSource.volume;
 			Level = 0;
-			StartCoroutine(fade(1, 2, 0.5F));
+			StartCoroutine(fade(level, 2, 0.5F));
 		}
 
 		private void fadeOut()
@@ -137,6 +142,5 @@ namespace DinoDuel
 				yield return null;
 			}
 		}
-
 	}
 }

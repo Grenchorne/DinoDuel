@@ -11,4 +11,9 @@ namespace DinoDuel
 			audioSource.Play();
 		}
 	}
+
+	interface iAudio
+	{
+		void updateLevel();
+	}
 }

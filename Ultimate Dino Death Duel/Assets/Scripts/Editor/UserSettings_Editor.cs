@@ -8,10 +8,10 @@ namespace DinoDuel_Editor
 {
 	public class UserSettings_Editor : Editor
 	{
-		static readonly string PATH = "Assets/Resources/Prefs/";
+		static readonly string DIR = "Assets/Resources/Prefs/";
 		static readonly string TITLE = "UserSettingsAsset";
 		static readonly string EXT = ".asset";
-		static readonly string PATH_FULL = PATH + TITLE + EXT;
+		static readonly string PATH_FULL = DIR + TITLE + EXT;
 
 		[MenuItem("DinoDuel/Create User Settings")]
 		public static void ForceCreate()

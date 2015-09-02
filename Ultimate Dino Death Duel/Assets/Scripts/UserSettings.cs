@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System;
 using System.IO;
 using System.Reflection;
+using ClipType = DinoDuel.AudioClipManager.ClipType;
 
 namespace DinoDuel
 {	
@@ -17,9 +18,14 @@ namespace DinoDuel
 
 		#region IO
 		private static string ROOT;
-		private static readonly string DIR = "/Settings/";
-		private static readonly string FILENAME = "UDDD_UserPrefs";
-		private static readonly string EXT = ".txt";
+		private static readonly string DIR_TXT = "/Settings/";
+		private static readonly string FILENAME_TXT = "UDDD_UserPrefs";
+		private static readonly string EXT_TXT = ".txt";
+
+		static readonly string DIR_ASSET = "Assets/Resources/Prefs/";
+		static readonly string FILENAME_ASSET = "UserSettingsAsset";
+		static readonly string EXT_ASSET = ".asset";
+		static readonly string PATH_FULL_ASSET = DIR_ASSET + FILENAME_ASSET+ EXT_ASSET;
 		#endregion
 
 		#region Strings
@@ -33,10 +39,13 @@ namespace DinoDuel
 		private static readonly string en_sfx_val = "SFX_Level";
 		private static readonly string en_mus_tog = "MUS_Toggle";
 		private static readonly string en_mus_val = "MUS_Level";
+		private static readonly string en_dmg_tog = "Damage_Toggle";
+		private static readonly string en_psh_tog = "Push_Toggle";	
 		#endregion
 		#endregion
 
 		#region Settings
+		#region Audio
 		#region Toggles
 		[Serialize]
 		[Hide]
@@ -161,6 +170,25 @@ namespace DinoDuel
 		}
 		#endregion
 		#endregion
+		#region Gameplay
+		[Serialize][Hide]
+		private bool _pushToggle;
+		[Show]
+		public bool Push_Toggle
+		{
+			get { return _pushToggle; }
+			set { _pushToggle = value; }
+		}
+		[Serialize][Hide]
+		private bool _damageToggle;
+		[Show]
+		public bool Damage_Toggle
+		{
+			get { return _damageToggle; }
+			set { _damageToggle = value; }
+		}
+		#endregion
+		#endregion
 
 		private void bindValue(ref float value)
 		{
@@ -180,6 +208,14 @@ namespace DinoDuel
 			VO_Level = VAL_MAX;
 			SFX_Level = VAL_MAX;
 			MUS_Level = VAL_MAX;
+			Push_Toggle = true;
+			Damage_Toggle = true;
+
+			findRoot();
+			string file = ROOT + DIR_TXT + FILENAME_TXT + EXT_TXT;
+			if(File.Exists(file))
+				File.Delete(file);
+			initializePrefs(file);
 		}
 
 		void findRoot()
@@ -191,7 +227,7 @@ namespace DinoDuel
 		public void ioRead()
 		{
 			findRoot();
-			string file = ROOT + DIR + FILENAME + EXT;
+			string file = ROOT + DIR_TXT + FILENAME_TXT + EXT_TXT;
 			if(!File.Exists(file))
 				initializePrefs(file);
 
@@ -246,7 +282,7 @@ namespace DinoDuel
 		public void ioWrite()
 		{
 			findRoot();
-			string file = ROOT + DIR + FILENAME + EXT;
+			string file = ROOT + DIR_TXT + FILENAME_TXT + EXT_TXT;
 			string[] lines = File.ReadAllLines(file);
 			using(StreamWriter prefs = new StreamWriter(file))
 			{
@@ -270,7 +306,7 @@ namespace DinoDuel
 
 		private void initializePrefs(string file)
 		{
-			string subdir = ROOT + DIR;
+			string subdir = ROOT + DIR_TXT;
 			Directory.CreateDirectory(subdir);
 
 			using (StreamWriter prefs = new StreamWriter(file))
@@ -283,6 +319,8 @@ namespace DinoDuel
 				prefs.WriteLine(en_vo_val + _sep + VAL_MAX);
 				prefs.WriteLine(en_sfx_val + _sep + VAL_MAX);
 				prefs.WriteLine(en_mus_val + _sep + VAL_MAX);
+				prefs.WriteLine(en_dmg_tog + _sep + "True");
+				prefs.WriteLine(en_psh_tog + _sep + "True");
 				prefs.Close();
 			}
 
@@ -290,6 +328,108 @@ namespace DinoDuel
 				UnityEditor.AssetDatabase.SaveAssets();
 				UnityEditor.AssetDatabase.Refresh();
 			#endif
+		}
+		#endregion
+
+		#region Preference Application
+		public static UserSettings Instance
+		{ get { return (UserSettings)Resources.Load<UserSettings>("Prefs/UserSettingsAsset"); } }
+
+		public static float MASTER_LEVEL
+		{ get { return Instance.Master_Level; } }
+
+		public static bool MASTER_TOGGLE
+		{ get { return Instance.Master_Toggle; } }
+
+		public static float SFX_LEVEL
+		{ get { return Instance.SFX_Level; } }
+
+		public static bool SFX_TOGGLE
+		{ get { return Instance.SFX_Toggle; } }
+
+		public static float VO_LEVEL
+		{ get { return Instance.VO_Level; } }
+
+		public static bool VO_TOGGLE
+		{ get { return Instance.VO_Toggle; } }
+
+		public static float MUS_LEVEL
+		{ get { return Instance.MUS_Level; } }
+
+		public static bool MUS_TOGGLE
+		{ get { return Instance.MUS_Toggle; } }
+
+		public static bool DMG_TOGGLE
+		{ get { return Instance.Damage_Toggle; } }
+
+		public static bool PUSH_TOGGLE
+		{ get { return Instance.Push_Toggle; } }
+
+		public static void BindSFXLevel(AudioSource[] audioSources)
+		{
+			BindLevels(audioSources, ClipType.SFX);
+		}
+
+		public static void BindVOLevel(AudioSource[] audioSources)
+		{
+			BindLevels(audioSources, ClipType.VO);
+		}
+
+		public static void BindMUSLevel(AudioSource[] audioSources)
+		{
+			BindLevels(audioSources, ClipType.MUS);
+		}
+
+		public static void BindLevel(AudioSource audioSource, ClipType clipType)
+		{
+			BindLevels(new AudioSource[] { audioSource }, clipType);
+		}
+
+		private static void BindLevels(AudioSource[] audioSources, ClipType clipType)
+		{
+			UserSettings instance = Instance;
+			bool masterToggle = instance.Master_Toggle;
+			float masterLevel = instance.Master_Level;
+			bool toggle = false;
+			float level = -1;
+
+			if(masterToggle && masterLevel > 0)
+			{
+				switch(clipType)
+				{
+					case ClipType.SFX:
+						toggle = instance.SFX_Toggle;
+						level = instance.SFX_Level * masterLevel;
+						break;
+					case ClipType.VO:
+						toggle = instance.VO_Toggle;
+						level = instance.VO_Level * masterLevel;
+						break;
+					case ClipType.MUS:
+						toggle = instance.MUS_Toggle;
+						level = instance.MUS_Level * masterLevel;
+						break;
+				}
+			}
+			else
+			{
+				toggle = false;
+				level = 0;
+			}
+			if(!toggle)
+				level = 0;
+
+			foreach(AudioSource audioSource in audioSources)
+			{
+				if(audioSource)
+				audioSource.volume = level;
+			}
+		}
+
+		public static void UpdateSceneLevels()
+		{
+			foreach(AudioClipManager clipman in GameObject.FindObjectsOfType<AudioClipManager>())
+				clipman.updateLevel();
 		}
 		#endregion
 	}

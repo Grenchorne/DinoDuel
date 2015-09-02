@@ -5,14 +5,23 @@ using System.Collections.Generic;
 namespace DinoDuel
 {
 	[RequireComponent(typeof(AudioSource))]
-	public class AudioClipManager : BetterBehaviour
+	public class AudioClipManager : BetterBehaviour, iAudio
 	{
-		public enum ClipType
+		public enum PlaybackType
 		{
 			Last,
 			Shuffle,
 			Queue,
 		}
+
+		public enum ClipType
+		{
+			SFX,
+			VO,
+			MUS
+		}
+
+		public ClipType clipType;
 
 		private const int CLIPS_MAX = 20;
 
@@ -23,9 +32,9 @@ namespace DinoDuel
 
 		[Serialize]
 		[Hide]
-		private ClipType _clipType;
+		private PlaybackType _clipType;
 		[Show]
-		public ClipType Clip_Type
+		public PlaybackType Playback_Type
 		{
 			get { return _clipType; }
 			set { _clipType = value; }
@@ -34,19 +43,19 @@ namespace DinoDuel
 		[Show]
 		public void playClip()
 		{
-			playClip(this.Clip_Type);
+			playClip(this.Playback_Type);
 		}
 
 		[Show]
-		public void playClip(ClipType clipType)
+		public void playClip(PlaybackType playbackType)
 		{
-			switch(clipType)
+			switch(playbackType)
 			{
-				case ClipType.Last:	break;
-				case ClipType.Queue:
+				case PlaybackType.Last:	break;
+				case PlaybackType.Queue:
 					index++;
 					break;
-				case ClipType.Shuffle:
+				case PlaybackType.Shuffle:
 					index = Random.Range(0, AudioClips.Length);
 					break;
 			}
@@ -69,14 +78,15 @@ namespace DinoDuel
 			}
 		}
 
-		public static void CreateInstance(ClipType clipType)
-		{
-
-		}
-
 		void Start()
 		{
 			audioSource = GetComponent<AudioSource>();
+			updateLevel();
+		}
+
+		public void updateLevel()
+		{
+			UserSettings.BindLevel(audioSource, clipType);
 		}
 
 		private AudioClip getClip(int index)
@@ -108,7 +118,7 @@ namespace DinoDuel
 		{
 			base.Reset();
 			audioSource = GetComponent<AudioSource>();
-			Clip_Type = ClipType.Shuffle;
+			Playback_Type = PlaybackType.Shuffle;
 		}
 	}
 }

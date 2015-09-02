@@ -62,7 +62,7 @@ namespace DinoDuel
 
 		private void explode()
 		{
-			audioClipManager.playClip(AudioClipManager.ClipType.Shuffle);
+			audioClipManager.playClip(AudioClipManager.PlaybackType.Shuffle);
 			ParticleSystem expl = GameObject.Instantiate<ParticleSystem>(explosion);
 			expl.transform.position = transform.position;
 			expl.Emit(10);
