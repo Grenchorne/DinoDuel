@@ -30,29 +30,15 @@ namespace DinoDuel
 						_instance = FindObjectOfType<T>();
 						if(FindObjectsOfType<T>().Length > 1)
 						{
-#if UNITY_EDITOR
 							//Debug.LogError("[Singleton] Something went really wrong. " + 
 							//	"There should never be more than one singleton per type." + 
 							//	"\n Reopening the scene might fix it.");
-#endif
 							return _instance;
 						}
 						if(!_instance)
 						{
 							_instance = new GameObject()
 								.AddComponent<T>();
-#if UNITY_EDITOR
-							//Debug.Log("[Singleton] An instance of " +
-							//	typeof(T) + " is needed in scene, so '" + 
-							//	_instance.name + "' was created." + 
-							//"\nDontDestroyOnLoad added on Awake.");	
-#endif
-
-						}
-						else
-						{
-							//Debug.Log("[Singleton] Using instance already created: " + 
-							//		_instance.name);
 						}
 					}
 					return _instance;
@@ -65,7 +51,6 @@ namespace DinoDuel
 			T instance = Instance;
 			if(instance != this)
 			{
-				Debug.Log("Destroying " + name);
 				Destroy(gameObject);
 				return;
 			}

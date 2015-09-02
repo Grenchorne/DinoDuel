@@ -18,6 +18,9 @@ TextureImporter:
     21300022: Red_Jaw
     21300024: Red_Leg_L
     21300026: Red_Leg_R
+    21300028: DinoEyes_DMG1
+    21300030: DinoEyes_DMG2
+    21300032: DinoEyes_DMG3
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -116,8 +119,8 @@ TextureImporter:
     - name: Blue_Leg_L
       rect:
         serializedVersion: 2
-        x: 286
-        y: 482
+        x: 374
+        y: 358
         width: 65
         height: 96
       alignment: 0
@@ -130,6 +133,36 @@ TextureImporter:
         y: 636
         width: 65
         height: 96
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: DinoEyes_DMG1
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 428
+        width: 86
+        height: 74
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: DinoEyes_DMG2
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 456
+        width: 86
+        height: 74
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: DinoEyes_DMG3
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 504
+        width: 86
+        height: 74
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -186,8 +219,8 @@ TextureImporter:
     - name: Red_Leg_L
       rect:
         serializedVersion: 2
-        x: 417
-        y: 438
+        x: 441
+        y: 268
         width: 62
         height: 92
       alignment: 0
@@ -196,8 +229,8 @@ TextureImporter:
     - name: Red_Leg_R
       rect:
         serializedVersion: 2
-        x: 353
-        y: 438
+        x: 441
+        y: 362
         width: 62
         height: 92
       alignment: 0

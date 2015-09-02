@@ -174,6 +174,7 @@
         <array>
             <filename>Dino3</filename>
             <filename>Dino2</filename>
+            <filename>DinoEyes</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

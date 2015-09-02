@@ -6,8 +6,7 @@ namespace DinoDuel
 	public class Weapon : MonoBehaviour
 	{
 		private Dino dino;
-		public float damageOnHit;
-		private float damageMod = 0.0005f;
+		private const float damageMod = 0.00065f;
 		private Rigidbody2D rigidBody2D;
 		
 		public bool willPush = false;
@@ -40,7 +39,7 @@ namespace DinoDuel
 			if(!applyingDamage ||
 				!collider.GetComponentInParent<Dino>())
 				return;
-			dino.damageToApply += angularV * damageMod * damageOnHit;
+			dino.damageToApply += angularV * damageMod;
 		}
 
 		private void OnTriggerEnter2D(Collider2D collider)

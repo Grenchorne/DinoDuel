@@ -47,7 +47,7 @@ namespace DinoDuel
 
 		IEnumerator showSkeleton(Dino dino)
 		{
-			yield return new WaitForSeconds(1);
+			yield return new WaitForSeconds(0.5f);
 			dino.showSkeleton();
 		}
 	}

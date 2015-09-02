@@ -59,10 +59,10 @@ namespace DinoDuel
 		#endregion
 
 		#region Damage Packing
-		public float damageToApply { get; set; }
+		public float damageToApply;
 		private bool applyingDamage;
 		public Dino enemy;
-		private Weapon[] damagers;
+		private Weapon[] weapons;
 
 		private void applyDamage()
 		{
@@ -75,16 +75,19 @@ namespace DinoDuel
 		{
 			if(damage >= 1 && damage < 10)
 			{
+				showEye(0);
 				aud_dmg_1.playClip();
 			}
 
 			else if(damage >= 10 && damage < 15)
 			{
+				showEye(1);
 				aud_dmg_2.playClip();
 			}
 
 			else
 			{
+				showEye(2);
 				aud_dmg_3.playClip();
 			}
 			
@@ -96,7 +99,7 @@ namespace DinoDuel
 		#endregion
 
 		public ParticleSystem damageEffect { get; set; }
-		Transform enemyHead; //Used for dmg effects positioning
+		Transform enemyHead;
 		Color color;
 
 		public Text loseText;
@@ -128,24 +131,28 @@ namespace DinoDuel
 			Health = H_STARTING;
 			isAlive = true;
 			string inputPrefix = "";
+			Transform head = null;
 			switch(player)
 			{
 				case Player.Player1:
 					inputPrefix = "P1_";
 					directionMod = 1;
-					enemyHead = GameObject.Find("Blue_Head").transform;
-					color = Color.blue;
+					enemyHead = GameObject.Find("Red_Head").transform;
+					head = GameObject.Find("Blue_Head").transform;
+					color = Color.red;
 					break;
 				case Player.Player2:
 					inputPrefix = "P2_";
 					directionMod = -1;
-					enemyHead = GameObject.Find("Red_Head").transform;
-					color = Color.red;
+					enemyHead = GameObject.Find("Blue_Head").transform;
+					head = GameObject.Find("Red_Head").transform;
+					color = Color.blue;
 					break;
 				default: goto case Player.Player1;
 			}
 
-			damagers = GetComponentsInChildren<Weapon>();
+			if(head)	findEyes(head);
+			weapons = GetComponentsInChildren<Weapon>();
 
 			jawInput = inputPrefix + "Jaw";
 			headInput = inputPrefix + "Head";
@@ -153,6 +160,7 @@ namespace DinoDuel
 			pawRInput = inputPrefix + "Paw_R";
 			legLInput = inputPrefix + "Leg_L";
 			legRInput = inputPrefix + "Leg_R";
+
 		}
 
 		void pauseGame()
@@ -178,7 +186,7 @@ namespace DinoDuel
 			}
 
 			applyingDamage = false;
-			foreach(Weapon d in damagers)
+			foreach(Weapon d in weapons)
 			{
 				if(d.applyingDamage)
 				{
@@ -186,7 +194,8 @@ namespace DinoDuel
 					break;
 				}
 			}
-
+			Debug.Log("Applying damage: " + applyingDamage);
+			Debug.Log("Damage to apply: " + damageToApply);
 			if(!applyingDamage && damageToApply > 1)
 				applyDamage();
 			if(damageToApply < 1)
@@ -239,7 +248,6 @@ namespace DinoDuel
 			Camera.main.GetComponent<Timer>().section = Timer.Section.Post;
 			_health = 0;
 		}
-
 		
 		private void explode()
 		{
@@ -308,6 +316,39 @@ namespace DinoDuel
 				noclipRigidBody(rb);
 				yield return new WaitForSeconds(Random.Range(0.25f, 0.75f));
 			}
+		}
+		#endregion
+
+		#region Eye Damage
+		SpriteRenderer[] eyes;
+
+		private void findEyes(Transform beholderOftheEyes)
+		{
+			eyes = new SpriteRenderer[]
+			{
+				beholderOftheEyes.FindChild("Eyes_DMG1").GetComponent<SpriteRenderer>(),
+				beholderOftheEyes.FindChild("Eyes_DMG2").GetComponent<SpriteRenderer>(),
+				beholderOftheEyes.FindChild("Eyes_DMG3").GetComponent<SpriteRenderer>()
+			};
+		}
+
+		void showEye(int index)
+		{
+			hideEyes();
+			eyes[index].enabled = true;
+			StartCoroutine(resetEyes());
+		}
+
+		void hideEyes()
+		{
+			foreach(SpriteRenderer eye in eyes)
+				eye.enabled = false;
+		}
+
+		IEnumerator resetEyes()
+		{
+			yield return new WaitForSeconds(.5f);
+			hideEyes();
 		}
 		#endregion
 	}
