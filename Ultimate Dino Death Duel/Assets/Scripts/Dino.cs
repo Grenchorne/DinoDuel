@@ -155,9 +155,18 @@ namespace DinoDuel
 			legRInput = inputPrefix + "Leg_R";
 		}
 
+		void pauseGame()
+		{
+			Timer timer = GameObject.FindObjectOfType<Timer>();
+			//timer.section = Timer.Section.Post;
+			timer.time = -100;
+		}
+
 		// Update is called once per frame
 		void Update()
 		{
+			if(Input.GetAxisRaw("Pause") >= 1)
+				pauseGame();
 			if(usesInput)
 			{
 				movePart(Input.GetAxis(jawInput), JawMover);

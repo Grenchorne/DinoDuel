@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
 using Vexe.Runtime.Types;
 
 namespace DinoDuel
@@ -16,7 +15,7 @@ namespace DinoDuel
 		{
 			Rigidbody2D body = null;
 			Dino dino = collider.GetComponentInParent<Dino>();
-			if(!dino)
+			if(!dino || !dino.isAlive)
 				return;
 			switch(dino.player)
 			{
@@ -41,12 +40,12 @@ namespace DinoDuel
 					position.z);
 				eruption.Play();
 				fired = true;
-				//showSkeleton(dino);
-				dino.showSkeleton();
+
+				StartCoroutine(showSkeleton(dino));
 			}
 		}
 
-		IEnumerable showSkeleton(Dino dino)
+		IEnumerator showSkeleton(Dino dino)
 		{
 			yield return new WaitForSeconds(1);
 			dino.showSkeleton();

@@ -7,11 +7,14 @@ namespace DinoDuel
 	{
 		const int i_MainMenu = 0;
 		const int i_Scene1 = 1;
+		const int i_pushForce = 1000;
 
 		const KeyCode KK_KillPlayer1		= KeyCode.Alpha1;
 		const KeyCode KK_KillPlayer2		= KeyCode.Alpha2;
 		const KeyCode KK_DecreaseTime		= KeyCode.Minus;
-		const KeyCode KK_IncreaseTime		= KeyCode.Plus;
+		const KeyCode KK_IncreaseTime		= KeyCode.Equals;
+		const KeyCode KK_PushDino1		= KeyCode.Comma;
+		const KeyCode KK_PushDino2		= KeyCode.Period;
 
 		bool b_mod1 = false;
 		const KeyCode KK_Mod1				= KeyCode.LeftShift;
@@ -63,8 +66,17 @@ namespace DinoDuel
 		void Update()
 		{
 			//Hold modification
-			if(Input.GetKeyDown(KK_Mod1))			b_mod1 = true;
-			if(Input.GetKeyDown(KK_Mod2))			b_mod2 = true;
+			//if(Input.GetKeyDown(KK_Mod1))			b_mod1 = true;
+			//if(Input.GetKeyDown(KK_Mod2))			b_mod2 = true;
+
+			if(Input.GetKey(KK_Mod1))
+				b_mod1 = true;
+			else
+				b_mod1 = false;
+			if(Input.GetKey(KK_Mod2))
+				b_mod2 = true;
+			else
+				b_mod2 = false;
 
 			//Get input
 			//Left shft
@@ -88,11 +100,15 @@ namespace DinoDuel
 					{
 						if(Input.GetKeyDown(KK_ToggleInvicible_P1))
 							Debug.Log("toggle invincible p1");
+						if(Input.GetKeyDown(KK_PushDino1))
+							GameObject.Find("Blue_Body").GetComponent<Rigidbody2D>().AddForce(Vector2.right * i_pushForce);
 					}
 					if(player2)
 					{
 						if(Input.GetKeyDown(KK_ToggleInvicible_P2))
 							Debug.Log("toggle invincible p2");
+						if(Input.GetKeyDown(KK_PushDino2))
+							GameObject.Find("Red_Body").GetComponent<Rigidbody2D>().AddForce(Vector2.right * -1 * i_pushForce);
 					}
 				}
 			}
@@ -129,18 +145,22 @@ namespace DinoDuel
 				{
 					if(Input.GetKeyDown(KK_KillPlayer1))
 						player1.Health = -100;
+					if(Input.GetKeyDown(KK_PushDino1))
+						GameObject.Find("Blue_Body").GetComponent<Rigidbody2D>().AddForce(Vector2.right * -1 * i_pushForce);
 				}
 				//Dino2
 				if(player2)
 				{
 					if(Input.GetKeyDown(KK_KillPlayer2))
 						player2.Health = -100;
+					if(Input.GetKeyDown(KK_PushDino2))
+						GameObject.Find("Red_Body").GetComponent<Rigidbody2D>().AddForce(Vector2.right * i_pushForce);
 				}
 			}
 			
-			//Release modification
-			if(Input.GetKeyUp(KK_Mod1))				b_mod1 = false;
-			if(Input.GetKeyUp(KK_Mod2))				b_mod2 = false;
+			////Release modification
+			//if(Input.GetKeyUp(KK_Mod1))				b_mod1 = false;
+			//if(Input.GetKeyUp(KK_Mod2))				b_mod2 = false;
 		}
 
 		int currentLevel = 0;
