@@ -1,0 +1,220 @@
+fileFormatVersion: 2
+guid: af755f32dbf5ed84bb765500cb343e1b
+timeCreated: 1442273148
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: BTN_controls
+    21300002: BTN_home
+    21300004: BTN_play
+    21300006: BTN_quit
+    21300008: BTN_replay
+    21300010: BTN_settings
+    21300012: BTN_vert_down
+    21300014: BTN_vert_up
+    21300016: grad_hor
+    21300018: tab_hor_down
+    21300020: tab_hor_up
+    21300022: aud_mstr
+    21300024: aud_mus
+    21300026: aud_sfx
+    21300028: aud_vo
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 4096
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: BTN_controls
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 918
+        width: 72
+        height: 43
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BTN_home
+      rect:
+        serializedVersion: 2
+        x: 584
+        y: 886
+        width: 54
+        height: 43
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BTN_play
+      rect:
+        serializedVersion: 2
+        x: 717
+        y: 920
+        width: 36
+        height: 41
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BTN_quit
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 876
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BTN_replay
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 884
+        width: 46
+        height: 42
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BTN_settings
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 882
+        width: 46
+        height: 45
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BTN_vert_down
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 907
+        width: 181
+        height: 54
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BTN_vert_up
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 907
+        width: 181
+        height: 54
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: aud_mstr
+      rect:
+        serializedVersion: 2
+        x: 584
+        y: 931
+        width: 67
+        height: 30
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: aud_mus
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 929
+        width: 69
+        height: 32
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: aud_sfx
+      rect:
+        serializedVersion: 2
+        x: 653
+        y: 924
+        width: 62
+        height: 37
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: aud_vo
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 928
+        width: 69
+        height: 33
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: grad_hor
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 963
+        width: 800
+        height: 59
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: tab_hor_down
+      rect:
+        serializedVersion: 2
+        x: 804
+        y: 924
+        width: 182
+        height: 48
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: tab_hor_up
+      rect:
+        serializedVersion: 2
+        x: 804
+        y: 974
+        width: 182
+        height: 48
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

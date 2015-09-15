@@ -1,0 +1,25 @@
+#
+# Sprite sheet data for Unity.
+#
+# To import these sprites into your Unity project, download "TexturePackerImporter":
+# http://www.codeandweb.com/texturepacker/unity
+#
+# Sprite sheet: UI.png (1024 x 1024)
+# $TexturePacker:SmartUpdate:6a715949183e8e6eb6cdad659c763150:c52b13f7d115bd6ed331b0e414eda60e:64d56465927d50bb5400e4c66dc46a97$
+#
+
+BTN_controls;368;918;72;43;0.5;0.5
+BTN_home;584;886;54;43;0.5;0.5
+BTN_play;717;920;36;41;0.5;0.5
+BTN_quit;368;876;40;40;0.5;0.5
+BTN_replay;442;884;46;42;0.5;0.5
+BTN_settings;513;882;46;45;0.5;0.5
+BTN_vert_down;185;907;181;54;0.5;0.5
+BTN_vert_up;2;907;181;54;0.5;0.5
+aud_mstr;584;931;67;30;0.5;0.5
+aud_mus;513;929;69;32;0.5;0.5
+aud_sfx;653;924;62;37;0.5;0.5
+aud_vo;442;928;69;33;0.5;0.5
+grad_hor;2;963;800;59;0.5;0.5
+tab_hor_down;804;924;182;48;0.5;0.5
+tab_hor_up;804;974;182;48;0.5;0.5
