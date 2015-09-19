@@ -19,6 +19,8 @@ TextureImporter:
     21300024: aud_mus
     21300026: aud_sfx
     21300028: aud_vo
+    21300030: kbrd
+    21300032: square
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -42,7 +44,7 @@ TextureImporter:
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
   textureFormat: -1
-  maxTextureSize: 2048
+  maxTextureSize: 4096
   textureSettings:
     filterMode: 1
     aniso: 16
@@ -67,8 +69,8 @@ TextureImporter:
     - name: BTN_controls
       rect:
         serializedVersion: 2
-        x: 368
-        y: 918
+        x: 800
+        y: 907
         width: 72
         height: 43
       alignment: 0
@@ -77,8 +79,8 @@ TextureImporter:
     - name: BTN_home
       rect:
         serializedVersion: 2
-        x: 584
-        y: 886
+        x: 736
+        y: 879
         width: 54
         height: 43
       alignment: 0
@@ -87,8 +89,8 @@ TextureImporter:
     - name: BTN_play
       rect:
         serializedVersion: 2
-        x: 717
-        y: 920
+        x: 971
+        y: 801
         width: 36
         height: 41
       alignment: 0
@@ -97,8 +99,8 @@ TextureImporter:
     - name: BTN_quit
       rect:
         serializedVersion: 2
-        x: 368
-        y: 876
+        x: 971
+        y: 844
         width: 40
         height: 40
       alignment: 0
@@ -107,8 +109,8 @@ TextureImporter:
     - name: BTN_replay
       rect:
         serializedVersion: 2
-        x: 442
-        y: 884
+        x: 923
+        y: 842
         width: 46
         height: 42
       alignment: 0
@@ -117,8 +119,8 @@ TextureImporter:
     - name: BTN_settings
       rect:
         serializedVersion: 2
-        x: 513
-        y: 882
+        x: 792
+        y: 860
         width: 46
         height: 45
       alignment: 0
@@ -127,7 +129,7 @@ TextureImporter:
     - name: BTN_vert_down
       rect:
         serializedVersion: 2
-        x: 185
+        x: 553
         y: 907
         width: 181
         height: 54
@@ -137,7 +139,7 @@ TextureImporter:
     - name: BTN_vert_up
       rect:
         serializedVersion: 2
-        x: 2
+        x: 370
         y: 907
         width: 181
         height: 54
@@ -147,8 +149,8 @@ TextureImporter:
     - name: aud_mstr
       rect:
         serializedVersion: 2
-        x: 584
-        y: 931
+        x: 945
+        y: 886
         width: 67
         height: 30
       alignment: 0
@@ -157,8 +159,8 @@ TextureImporter:
     - name: aud_mus
       rect:
         serializedVersion: 2
-        x: 513
-        y: 929
+        x: 945
+        y: 918
         width: 69
         height: 32
       alignment: 0
@@ -167,7 +169,7 @@ TextureImporter:
     - name: aud_sfx
       rect:
         serializedVersion: 2
-        x: 653
+        x: 736
         y: 924
         width: 62
         height: 37
@@ -177,8 +179,8 @@ TextureImporter:
     - name: aud_vo
       rect:
         serializedVersion: 2
-        x: 442
-        y: 928
+        x: 874
+        y: 917
         width: 69
         height: 33
       alignment: 0
@@ -194,11 +196,31 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tab_hor_down
+    - name: kbrd
       rect:
         serializedVersion: 2
         x: 804
-        y: 924
+        y: 952
+        width: 203
+        height: 70
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: square
+      rect:
+        serializedVersion: 2
+        x: 874
+        y: 868
+        width: 47
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: tab_hor_down
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 913
         width: 182
         height: 48
       alignment: 0
@@ -207,8 +229,8 @@ TextureImporter:
     - name: tab_hor_up
       rect:
         serializedVersion: 2
-        x: 804
-        y: 974
+        x: 2
+        y: 913
         width: 182
         height: 48
       alignment: 0

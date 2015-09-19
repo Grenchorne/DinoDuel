@@ -45,6 +45,8 @@ namespace DinoDuel
 			get { return _health; }
 			set
 			{
+				if(!healthSlider)
+					return;
 				bool isDead = value < H_MIN;
 				if(value > H_MAX)		value = H_MAX;
 				else if(value < H_MIN)	value = H_MIN;
