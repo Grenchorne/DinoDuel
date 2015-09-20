@@ -101,6 +101,8 @@ namespace DinoDuel
 			SFX_Level = userSettings.SFX_Level;
 			VO_Toggle = userSettings.VO_Toggle;
 			VO_Level = userSettings.VO_Level;
+			MUS_Toggle = userSettings.Master_Toggle;
+			MUS_Level = userSettings.Master_Level;
 			Damage_Toggle = userSettings.Damage_Toggle;
 			Push_Toggle = userSettings.Push_Toggle;
 		}

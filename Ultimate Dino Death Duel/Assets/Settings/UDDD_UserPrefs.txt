@@ -3,8 +3,8 @@ VO_Toggle:True
 SFX_Toggle:True
 MUS_Toggle:True
 Master_Level:1
-VO_Level:0.379444
+VO_Level:1
 SFX_Level:1
 MUS_Level:1
 Damage_Toggle:True
-Push_Toggle:False
+Push_Toggle:True

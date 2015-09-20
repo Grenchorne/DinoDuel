@@ -69,7 +69,7 @@ TextureImporter:
     - name: BTN_controls
       rect:
         serializedVersion: 2
-        x: 800
+        x: 948
         y: 907
         width: 72
         height: 43
@@ -80,7 +80,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 736
-        y: 879
+        y: 918
         width: 54
         height: 43
       alignment: 0
@@ -89,8 +89,8 @@ TextureImporter:
     - name: BTN_play
       rect:
         serializedVersion: 2
-        x: 971
-        y: 801
+        x: 875
+        y: 833
         width: 36
         height: 41
       alignment: 0
@@ -99,8 +99,8 @@ TextureImporter:
     - name: BTN_quit
       rect:
         serializedVersion: 2
-        x: 971
-        y: 844
+        x: 833
+        y: 834
         width: 40
         height: 40
       alignment: 0
@@ -109,8 +109,8 @@ TextureImporter:
     - name: BTN_replay
       rect:
         serializedVersion: 2
-        x: 923
-        y: 842
+        x: 785
+        y: 832
         width: 46
         height: 42
       alignment: 0
@@ -119,7 +119,7 @@ TextureImporter:
     - name: BTN_settings
       rect:
         serializedVersion: 2
-        x: 792
+        x: 941
         y: 860
         width: 46
         height: 45
@@ -149,40 +149,40 @@ TextureImporter:
     - name: aud_mstr
       rect:
         serializedVersion: 2
-        x: 945
-        y: 886
-        width: 67
-        height: 30
+        x: 863
+        y: 876
+        width: 76
+        height: 36
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: aud_mus
       rect:
         serializedVersion: 2
-        x: 945
-        y: 918
-        width: 69
-        height: 32
+        x: 785
+        y: 876
+        width: 76
+        height: 36
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: aud_sfx
       rect:
         serializedVersion: 2
-        x: 736
-        y: 924
-        width: 62
-        height: 37
+        x: 870
+        y: 914
+        width: 76
+        height: 36
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: aud_vo
       rect:
         serializedVersion: 2
-        x: 874
-        y: 917
-        width: 69
-        height: 33
+        x: 792
+        y: 914
+        width: 76
+        height: 36
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -209,8 +209,8 @@ TextureImporter:
     - name: square
       rect:
         serializedVersion: 2
-        x: 874
-        y: 868
+        x: 736
+        y: 869
         width: 47
         height: 47
       alignment: 0
