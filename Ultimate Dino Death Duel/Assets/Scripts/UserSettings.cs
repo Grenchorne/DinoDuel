@@ -40,7 +40,8 @@ namespace DinoDuel
 		private static readonly string en_mus_tog = "MUS_Toggle";
 		private static readonly string en_mus_val = "MUS_Level";
 		private static readonly string en_dmg_tog = "Damage_Toggle";
-		private static readonly string en_psh_tog = "Push_Toggle";	
+		private static readonly string en_psh_tog = "Push_Toggle";
+		private static readonly string en_time = "Round Time";	
 		#endregion
 		#endregion
 
@@ -187,6 +188,16 @@ namespace DinoDuel
 			get { return _damageToggle; }
 			set { _damageToggle = value; }
 		}
+
+		[Serialize]
+		[Hide]
+		private string _roundTime;
+		[Show]
+		public string RoundTime
+		{
+			get { return _roundTime; }
+			set { _roundTime = value; }
+		}
 		#endregion
 		#endregion
 
@@ -210,6 +221,7 @@ namespace DinoDuel
 			MUS_Level = VAL_MAX;
 			Push_Toggle = true;
 			Damage_Toggle = true;
+			RoundTime = "120";
 
 			findRoot();
 			string file = ROOT + DIR_TXT + FILENAME_TXT + EXT_TXT;
@@ -321,6 +333,7 @@ namespace DinoDuel
 				prefs.WriteLine(en_mus_val + _sep + VAL_MAX);
 				prefs.WriteLine(en_dmg_tog + _sep + "True");
 				prefs.WriteLine(en_psh_tog + _sep + "True");
+				prefs.WriteLine(en_time + _sep + 60);
 				prefs.Close();
 			}
 
@@ -422,7 +435,7 @@ namespace DinoDuel
 			foreach(AudioSource audioSource in audioSources)
 			{
 				if(audioSource)
-				audioSource.volume = level;
+					audioSource.volume = level;
 			}
 		}
 

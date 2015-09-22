@@ -5,18 +5,19 @@
 # http://www.codeandweb.com/texturepacker/unity
 #
 # Sprite sheet: UI.png (1024 x 1024)
-# $TexturePacker:SmartUpdate:7c914f0c4ab9dea5ff7d39d84af4dfe4:439975f9a4414eea3ceaa77145d82ccc:64d56465927d50bb5400e4c66dc46a97$
+# $TexturePacker:SmartUpdate:459295a947f8e380732dae06edcf76fe:ecd20e53844371616e8f9a76ba27e3cc:64d56465927d50bb5400e4c66dc46a97$
 #
 
 BTN_CREDS;370;791;48;46;0.5;0.5
 BTN_controls;841;831;72;43;0.5;0.5
 BTN_home;370;839;54;43;0.5;0.5
-BTN_play;792;788;36;41;0.5;0.5
+BTN_play;832;788;36;41;0.5;0.5
 BTN_quit;963;790;40;40;0.5;0.5
 BTN_replay;963;832;46;42;0.5;0.5
 BTN_settings;915;829;46;45;0.5;0.5
 BTN_vert_down;609;824;181;54;0.5;0.5
 BTN_vert_up;426;824;181;54;0.5;0.5
+Icon_Timer;792;784;38;45;0.5;0.5
 TXT_DeathDuel;2;884;437;77;0.5;0.5
 TXT_UltimateDino;441;880;413;70;0.5;0.5
 aud_mstr;934;876;76;36;0.5;0.5

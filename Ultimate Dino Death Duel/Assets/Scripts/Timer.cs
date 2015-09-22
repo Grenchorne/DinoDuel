@@ -10,6 +10,7 @@ namespace DinoDuel
 		private static float READY_TIME = 3;
 		private static float DUEL_TIME = 60;
 		private static float POST_TIME = 0;
+		public UserSettings userSettings;
 
 		public enum Section { None, Ready, Duel, Post }
 		Announcer announcer;
@@ -84,6 +85,9 @@ namespace DinoDuel
 
 		void Start()
 		{
+			int i_time;
+			int.TryParse(userSettings.RoundTime, out i_time);
+			DUEL_TIME = i_time;
 			section = Section.Ready;
 
 		}

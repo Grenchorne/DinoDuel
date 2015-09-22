@@ -38,6 +38,8 @@ namespace DinoDuel
 			get { return musToggle.isOn; }
 			set { musToggle.isOn = value; }
 		}
+
+
 		#endregion
 
 		#region Sliders
@@ -74,6 +76,7 @@ namespace DinoDuel
 		#region Gameplay
 		public Toggle pushToggle;
 		public Toggle damageToggle;
+		public InputField time;
 
 		public bool Push_Toggle
 		{
@@ -85,6 +88,12 @@ namespace DinoDuel
 		{
 			get { return damageToggle.isOn; }
 			set { damageToggle.isOn = value; }
+		}
+
+		public string Round_Time
+		{
+			get { return time.text; }
+			set { time.text = value; }
 		}
 		#endregion
 		#endregion
@@ -105,6 +114,7 @@ namespace DinoDuel
 			MUS_Level = userSettings.MUS_Level;
 			Damage_Toggle = userSettings.Damage_Toggle;
 			Push_Toggle = userSettings.Push_Toggle;
+			Round_Time = userSettings.RoundTime.ToString();
 		}
 	}
 

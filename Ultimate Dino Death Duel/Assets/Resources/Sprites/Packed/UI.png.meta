@@ -24,6 +24,7 @@ TextureImporter:
     21300034: TXT_DeathDuel
     21300036: TXT_UltimateDino
     21300038: BTN_CREDS
+    21300040: Icon_Timer
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -102,7 +103,7 @@ TextureImporter:
     - name: BTN_play
       rect:
         serializedVersion: 2
-        x: 792
+        x: 832
         y: 788
         width: 36
         height: 41
@@ -156,6 +157,16 @@ TextureImporter:
         y: 824
         width: 181
         height: 54
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Icon_Timer
+      rect:
+        serializedVersion: 2
+        x: 792
+        y: 784
+        width: 38
+        height: 45
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
