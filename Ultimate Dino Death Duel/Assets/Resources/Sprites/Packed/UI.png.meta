@@ -21,6 +21,8 @@ TextureImporter:
     21300028: aud_vo
     21300030: kbrd
     21300032: square
+    21300034: TXT_DeathDuel
+    21300036: TXT_UltimateDino
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -69,8 +71,8 @@ TextureImporter:
     - name: BTN_controls
       rect:
         serializedVersion: 2
-        x: 948
-        y: 907
+        x: 840
+        y: 831
         width: 72
         height: 43
       alignment: 0
@@ -79,8 +81,8 @@ TextureImporter:
     - name: BTN_home
       rect:
         serializedVersion: 2
-        x: 736
-        y: 918
+        x: 370
+        y: 839
         width: 54
         height: 43
       alignment: 0
@@ -89,7 +91,7 @@ TextureImporter:
     - name: BTN_play
       rect:
         serializedVersion: 2
-        x: 875
+        x: 956
         y: 833
         width: 36
         height: 41
@@ -99,7 +101,7 @@ TextureImporter:
     - name: BTN_quit
       rect:
         serializedVersion: 2
-        x: 833
+        x: 914
         y: 834
         width: 40
         height: 40
@@ -109,8 +111,8 @@ TextureImporter:
     - name: BTN_replay
       rect:
         serializedVersion: 2
-        x: 785
-        y: 832
+        x: 792
+        y: 789
         width: 46
         height: 42
       alignment: 0
@@ -119,8 +121,8 @@ TextureImporter:
     - name: BTN_settings
       rect:
         serializedVersion: 2
-        x: 941
-        y: 860
+        x: 792
+        y: 833
         width: 46
         height: 45
       alignment: 0
@@ -129,8 +131,8 @@ TextureImporter:
     - name: BTN_vert_down
       rect:
         serializedVersion: 2
-        x: 553
-        y: 907
+        x: 609
+        y: 824
         width: 181
         height: 54
       alignment: 0
@@ -139,17 +141,37 @@ TextureImporter:
     - name: BTN_vert_up
       rect:
         serializedVersion: 2
-        x: 370
-        y: 907
+        x: 426
+        y: 824
         width: 181
         height: 54
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TXT_DeathDuel
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 884
+        width: 437
+        height: 77
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TXT_UltimateDino
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 880
+        width: 413
+        height: 70
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: aud_mstr
       rect:
         serializedVersion: 2
-        x: 863
+        x: 934
         y: 876
         width: 76
         height: 36
@@ -159,7 +181,7 @@ TextureImporter:
     - name: aud_mus
       rect:
         serializedVersion: 2
-        x: 785
+        x: 856
         y: 876
         width: 76
         height: 36
@@ -169,7 +191,7 @@ TextureImporter:
     - name: aud_sfx
       rect:
         serializedVersion: 2
-        x: 870
+        x: 934
         y: 914
         width: 76
         height: 36
@@ -179,7 +201,7 @@ TextureImporter:
     - name: aud_vo
       rect:
         serializedVersion: 2
-        x: 792
+        x: 856
         y: 914
         width: 76
         height: 36
@@ -209,8 +231,8 @@ TextureImporter:
     - name: square
       rect:
         serializedVersion: 2
-        x: 736
-        y: 869
+        x: 370
+        y: 790
         width: 47
         height: 47
       alignment: 0
@@ -220,7 +242,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 186
-        y: 913
+        y: 834
         width: 182
         height: 48
       alignment: 0
@@ -230,7 +252,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2
-        y: 913
+        y: 834
         width: 182
         height: 48
       alignment: 0
