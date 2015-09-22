@@ -5,15 +5,16 @@
 # http://www.codeandweb.com/texturepacker/unity
 #
 # Sprite sheet: UI.png (1024 x 1024)
-# $TexturePacker:SmartUpdate:392bb9fc3bf506567d484e89828591d6:4aaeb9ce463a8266e8155f1dd98a2dd9:64d56465927d50bb5400e4c66dc46a97$
+# $TexturePacker:SmartUpdate:7c914f0c4ab9dea5ff7d39d84af4dfe4:439975f9a4414eea3ceaa77145d82ccc:64d56465927d50bb5400e4c66dc46a97$
 #
 
-BTN_controls;840;831;72;43;0.5;0.5
+BTN_CREDS;370;791;48;46;0.5;0.5
+BTN_controls;841;831;72;43;0.5;0.5
 BTN_home;370;839;54;43;0.5;0.5
-BTN_play;956;833;36;41;0.5;0.5
-BTN_quit;914;834;40;40;0.5;0.5
-BTN_replay;792;789;46;42;0.5;0.5
-BTN_settings;792;833;46;45;0.5;0.5
+BTN_play;792;788;36;41;0.5;0.5
+BTN_quit;963;790;40;40;0.5;0.5
+BTN_replay;963;832;46;42;0.5;0.5
+BTN_settings;915;829;46;45;0.5;0.5
 BTN_vert_down;609;824;181;54;0.5;0.5
 BTN_vert_up;426;824;181;54;0.5;0.5
 TXT_DeathDuel;2;884;437;77;0.5;0.5
@@ -24,6 +25,6 @@ aud_sfx;934;914;76;36;0.5;0.5
 aud_vo;856;914;76;36;0.5;0.5
 grad_hor;2;963;800;59;0.5;0.5
 kbrd;804;952;203;70;0.5;0.5
-square;370;790;47;47;0.5;0.5
+square;792;831;47;47;0.5;0.5
 tab_hor_down;186;834;182;48;0.5;0.5
 tab_hor_up;2;834;182;48;0.5;0.5
