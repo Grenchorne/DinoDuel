@@ -170,7 +170,8 @@ namespace DinoDuel
 		{
 			Timer timer = GameObject.FindObjectOfType<Timer>();
 			//timer.section = Timer.Section.Post;
-			timer.time = -100;
+			if(timer)
+				timer.time = -100;
 		}
 
 		// Update is called once per frame
