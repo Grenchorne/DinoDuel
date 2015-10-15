@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: d7942ce8eb6210649a5a3afeac448e4b
-timeCreated: 1438631963
+guid: c39f296fff8301f4bb33ded5f2b80a7e
+timeCreated: 1444925034
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -11,16 +11,17 @@ TextureImporter:
     21300008: Blue_Jaw
     21300010: Blue_Leg_L
     21300012: Blue_Leg_R
-    21300014: Red_Arm_L
-    21300016: Red_Arm_R
-    21300018: Red_Body
-    21300020: Red_Head
-    21300022: Red_Jaw
-    21300024: Red_Leg_L
-    21300026: Red_Leg_R
-    21300028: DinoEyes_DMG1
-    21300030: DinoEyes_DMG2
-    21300032: DinoEyes_DMG3
+    21300014: DinoEyes_DMG1
+    21300016: DinoEyes_DMG2
+    21300018: DinoEyes_DMG3
+    21300020: Red_Arm_L
+    21300022: Red_Arm_R
+    21300024: Red_Body
+    21300026: Red_Head
+    21300028: Red_Jaw
+    21300030: Red_Leg_L
+    21300032: Red_Leg_R
+    21300034: Skeleton
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -69,120 +70,120 @@ TextureImporter:
     - name: Blue_Arm_L
       rect:
         serializedVersion: 2
-        x: 286
-        y: 580
-        width: 112
-        height: 52
+        x: 3170
+        y: 2476
+        width: 601
+        height: 279
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Blue_Arm_R
       rect:
         serializedVersion: 2
-        x: 286
-        y: 634
-        width: 112
-        height: 52
+        x: 3170
+        y: 2757
+        width: 601
+        height: 279
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Blue_Body
       rect:
         serializedVersion: 2
-        x: 2
-        y: 751
-        width: 294
-        height: 271
+        x: 1586
+        y: 2635
+        width: 1582
+        height: 1459
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Blue_Head
       rect:
         serializedVersion: 2
-        x: 298
-        y: 782
-        width: 211
-        height: 119
+        x: 1103
+        y: 1289
+        width: 1181
+        height: 671
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Blue_Jaw
       rect:
         serializedVersion: 2
-        x: 298
-        y: 734
-        width: 152
-        height: 46
+        x: 3170
+        y: 3600
+        width: 822
+        height: 246
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Blue_Leg_L
       rect:
         serializedVersion: 2
-        x: 374
-        y: 358
-        width: 65
-        height: 96
+        x: 3601
+        y: 1957
+        width: 351
+        height: 517
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Blue_Leg_R
       rect:
         serializedVersion: 2
-        x: 434
-        y: 636
-        width: 65
-        height: 96
+        x: 2286
+        y: 1290
+        width: 351
+        height: 517
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: DinoEyes_DMG1
       rect:
         serializedVersion: 2
-        x: 286
-        y: 428
-        width: 86
-        height: 74
+        x: 3120
+        y: 2063
+        width: 479
+        height: 411
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: DinoEyes_DMG2
       rect:
         serializedVersion: 2
-        x: 374
-        y: 456
-        width: 86
-        height: 74
+        x: 2286
+        y: 1809
+        width: 479
+        height: 411
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: DinoEyes_DMG3
       rect:
         serializedVersion: 2
-        x: 286
-        y: 504
-        width: 86
-        height: 74
+        x: 2286
+        y: 2222
+        width: 479
+        height: 411
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Red_Arm_L
       rect:
         serializedVersion: 2
-        x: 400
-        y: 532
-        width: 107
-        height: 50
+        x: 3170
+        y: 3038
+        width: 601
+        height: 279
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Red_Arm_R
       rect:
         serializedVersion: 2
-        x: 400
-        y: 584
-        width: 107
-        height: 50
+        x: 3170
+        y: 3319
+        width: 601
+        height: 279
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,49 +191,59 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2
-        y: 489
-        width: 282
-        height: 260
+        y: 2635
+        width: 1582
+        height: 1459
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Red_Head
       rect:
         serializedVersion: 2
-        x: 298
-        y: 903
-        width: 211
-        height: 119
+        x: 1103
+        y: 1962
+        width: 1181
+        height: 671
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Red_Jaw
       rect:
         serializedVersion: 2
-        x: 286
-        y: 688
-        width: 146
-        height: 44
+        x: 3170
+        y: 3848
+        width: 822
+        height: 246
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Red_Leg_L
       rect:
         serializedVersion: 2
-        x: 441
-        y: 268
-        width: 62
-        height: 92
+        x: 2767
+        y: 1597
+        width: 351
+        height: 517
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Red_Leg_R
       rect:
         serializedVersion: 2
-        x: 441
-        y: 362
-        width: 62
-        height: 92
+        x: 2767
+        y: 2116
+        width: 351
+        height: 517
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Skeleton
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1741
+        width: 1099
+        height: 733
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}

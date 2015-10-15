@@ -6,7 +6,7 @@
         <key>texturePackerVersion</key>
         <string>3.3.4</string>
         <key>fileName</key>
-        <string>G:/DinoDuel/Project Files/TexturePacker/Dinos.tps</string>
+        <string>G:/DinoDuel/Project Files/TexturePacker/Dinos_Full.tps</string>
         <key>autoSDSettings</key>
         <array>
             <struct type="AutoSDSettings">
@@ -38,7 +38,7 @@
         <key>dataFormat</key>
         <string>unity-texture2d</string>
         <key>textureFileName</key>
-        <filename>../../Ultimate Dino Death Duel/Assets/Resources/Sprites/Packed/Dinos_Full.png</filename>
+        <filename>../../Ultimate Dino Death Duel/Assets/Resources/Sprites/Packed/Dinos.png</filename>
         <key>flipPVR</key>
         <false/>
         <key>ditherType</key>
@@ -131,7 +131,7 @@
             <key>datafile</key>
             <struct type="DataFile">
                 <key>name</key>
-                <filename>../../Ultimate Dino Death Duel/Assets/Resources/Sprites/Packed/Dinos_Full.tpsheet</filename>
+                <filename>../../Ultimate Dino Death Duel/Assets/Resources/Sprites/Packed/Dinos.tpsheet</filename>
             </struct>
         </map>
         <key>multiPack</key>

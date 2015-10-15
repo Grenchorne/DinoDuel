@@ -4,24 +4,25 @@
 # To import these sprites into your Unity project, download "TexturePackerImporter":
 # http://www.codeandweb.com/texturepacker/unity
 #
-# Sprite sheet: Dinos.png (512 x 1024)
-# $TexturePacker:SmartUpdate:ceb7402d95cc845ee225ab02f60b2163:99c9633e3c2887ef7b83c6f12a2032f2:4d37cec38e4c9b9cc0468dd3d6aba1df$
+# Sprite sheet: Dinos.png (4096 x 4096)
+# $TexturePacker:SmartUpdate:e5f3a7dfa8e23879bdf7c014d9350353:a621290a09fbdf920dbffba3fa7d811d:4d37cec38e4c9b9cc0468dd3d6aba1df$
 #
 
-Blue_Arm_L;286;580;112;52;0.5;0.5
-Blue_Arm_R;286;634;112;52;0.5;0.5
-Blue_Body;2;751;294;271;0.5;0.5
-Blue_Head;298;782;211;119;0.5;0.5
-Blue_Jaw;298;734;152;46;0.5;0.5
-Blue_Leg_L;374;358;65;96;0.5;0.5
-Blue_Leg_R;434;636;65;96;0.5;0.5
-DinoEyes_DMG1;286;428;86;74;0.5;0.5
-DinoEyes_DMG2;374;456;86;74;0.5;0.5
-DinoEyes_DMG3;286;504;86;74;0.5;0.5
-Red_Arm_L;400;532;107;50;0.5;0.5
-Red_Arm_R;400;584;107;50;0.5;0.5
-Red_Body;2;489;282;260;0.5;0.5
-Red_Head;298;903;211;119;0.5;0.5
-Red_Jaw;286;688;146;44;0.5;0.5
-Red_Leg_L;441;268;62;92;0.5;0.5
-Red_Leg_R;441;362;62;92;0.5;0.5
+Blue_Arm_L;3170;2476;601;279;0.5;0.5
+Blue_Arm_R;3170;2757;601;279;0.5;0.5
+Blue_Body;1586;2635;1582;1459;0.5;0.5
+Blue_Head;1103;1289;1181;671;0.5;0.5
+Blue_Jaw;3170;3600;822;246;0.5;0.5
+Blue_Leg_L;3601;1957;351;517;0.5;0.5
+Blue_Leg_R;2286;1290;351;517;0.5;0.5
+DinoEyes_DMG1;3120;2063;479;411;0.5;0.5
+DinoEyes_DMG2;2286;1809;479;411;0.5;0.5
+DinoEyes_DMG3;2286;2222;479;411;0.5;0.5
+Red_Arm_L;3170;3038;601;279;0.5;0.5
+Red_Arm_R;3170;3319;601;279;0.5;0.5
+Red_Body;2;2635;1582;1459;0.5;0.5
+Red_Head;1103;1962;1181;671;0.5;0.5
+Red_Jaw;3170;3848;822;246;0.5;0.5
+Red_Leg_L;2767;1597;351;517;0.5;0.5
+Red_Leg_R;2767;2116;351;517;0.5;0.5
+Skeleton;2;1741;1099;733;0.5;0.5

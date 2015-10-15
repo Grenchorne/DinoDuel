@@ -1,34 +1,30 @@
 fileFormatVersion: 2
-guid: af755f32dbf5ed84bb765500cb343e1b
-timeCreated: 1442273148
+guid: d7942ce8eb6210649a5a3afeac448e4b
+timeCreated: 1438631963
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: BTN_controls
-    21300002: BTN_home
-    21300004: BTN_play
-    21300006: BTN_quit
-    21300008: BTN_replay
-    21300010: BTN_settings
-    21300012: BTN_vert_down
-    21300014: BTN_vert_up
-    21300016: grad_hor
-    21300018: tab_hor_down
-    21300020: tab_hor_up
-    21300022: aud_mstr
-    21300024: aud_mus
-    21300026: aud_sfx
-    21300028: aud_vo
-    21300030: kbrd
-    21300032: square
-    21300034: TXT_DeathDuel
-    21300036: TXT_UltimateDino
-    21300038: BTN_CREDS
-    21300040: Icon_Timer
+    21300000: Blue_Arm_L
+    21300002: Blue_Arm_R
+    21300004: Blue_Body
+    21300006: Blue_Head
+    21300008: Blue_Jaw
+    21300010: Blue_Leg_L
+    21300012: Blue_Leg_R
+    21300014: Red_Arm_L
+    21300016: Red_Arm_R
+    21300018: Red_Body
+    21300020: Red_Head
+    21300022: Red_Jaw
+    21300024: Red_Leg_L
+    21300026: Red_Leg_R
+    21300028: DinoEyes_DMG1
+    21300030: DinoEyes_DMG2
+    21300032: DinoEyes_DMG3
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 0
+    enableMipMap: 1
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0
@@ -50,8 +46,8 @@ TextureImporter:
   textureFormat: -1
   maxTextureSize: 4096
   textureSettings:
-    filterMode: 1
-    aniso: 16
+    filterMode: -1
+    aniso: -1
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
@@ -70,213 +66,173 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: BTN_CREDS
+    - name: Blue_Arm_L
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 580
+        width: 112
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Blue_Arm_R
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 634
+        width: 112
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Blue_Body
       rect:
         serializedVersion: 2
         x: 2
+        y: 751
+        width: 294
+        height: 271
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Blue_Head
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 782
+        width: 211
+        height: 119
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Blue_Jaw
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 734
+        width: 152
+        height: 46
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Blue_Leg_L
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 358
+        width: 65
+        height: 96
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Blue_Leg_R
+      rect:
+        serializedVersion: 2
+        x: 434
+        y: 636
+        width: 65
+        height: 96
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: DinoEyes_DMG1
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 428
+        width: 86
+        height: 74
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: DinoEyes_DMG2
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 456
+        width: 86
+        height: 74
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: DinoEyes_DMG3
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 504
+        width: 86
+        height: 74
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Red_Arm_L
+      rect:
+        serializedVersion: 2
+        x: 400
         y: 532
-        width: 231
-        height: 229
+        width: 107
+        height: 50
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: BTN_controls
+    - name: Red_Arm_R
       rect:
         serializedVersion: 2
-        x: 1684
-        y: 1827
-        width: 359
-        height: 219
+        x: 400
+        y: 584
+        width: 107
+        height: 50
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: BTN_home
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 763
-        width: 264
-        height: 211
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: BTN_play
-      rect:
-        serializedVersion: 2
-        x: 229
-        y: 327
-        width: 177
-        height: 203
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: BTN_quit
-      rect:
-        serializedVersion: 2
-        x: 804
-        y: 963
-        width: 194
-        height: 194
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: BTN_replay
-      rect:
-        serializedVersion: 2
-        x: 190
-        y: 101
-        width: 223
-        height: 206
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: BTN_settings
+    - name: Red_Body
       rect:
         serializedVersion: 2
         x: 2
-        y: 309
-        width: 225
-        height: 221
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: BTN_vert_down
-      rect:
-        serializedVersion: 2
-        x: 185
-        y: 31
-        width: 181
-        height: 54
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: BTN_vert_up
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 31
-        width: 181
-        height: 54
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Icon_Timer
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 87
-        width: 186
-        height: 220
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: TXT_DeathDuel
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 1769
-        width: 1680
-        height: 277
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: TXT_UltimateDino
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 1507
-        width: 1629
+        y: 489
+        width: 282
         height: 260
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: aud_mstr
+    - name: Red_Head
       rect:
         serializedVersion: 2
-        x: 2
-        y: 976
-        width: 350
-        height: 120
+        x: 298
+        y: 903
+        width: 211
+        height: 119
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: aud_mus
+    - name: Red_Jaw
       rect:
         serializedVersion: 2
-        x: 1684
-        y: 1670
-        width: 350
-        height: 155
+        x: 286
+        y: 688
+        width: 146
+        height: 44
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: aud_sfx
+    - name: Red_Leg_L
       rect:
         serializedVersion: 2
-        x: 354
-        y: 916
-        width: 313
-        height: 180
+        x: 441
+        y: 268
+        width: 62
+        height: 92
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: aud_vo
+    - name: Red_Leg_R
       rect:
         serializedVersion: 2
-        x: 1633
-        y: 1503
-        width: 368
-        height: 165
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: grad_hor
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 1098
-        width: 800
-        height: 59
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: kbrd
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 1159
-        width: 999
-        height: 346
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: square
-      rect:
-        serializedVersion: 2
-        x: 1633
-        y: 1720
-        width: 47
-        height: 47
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tab_hor_down
-      rect:
-        serializedVersion: 2
-        x: 1003
-        y: 1023
-        width: 890
-        height: 238
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tab_hor_up
-      rect:
-        serializedVersion: 2
-        x: 1003
-        y: 1263
-        width: 890
-        height: 238
+        x: 441
+        y: 362
+        width: 62
+        height: 92
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
